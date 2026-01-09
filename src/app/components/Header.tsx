@@ -661,7 +661,10 @@ export default function Header() {
                 preload="metadata"
                 poster="/images/hero-poster.jpg"
               >
-                <source src="/videos/papirink.mp4" type="video/mp4" />
+              <source
+                src="https://papirink-web-blob.public.blob.vercel-storage.com/papirink.mp4"
+                type="video/mp4"
+              />
               </video>
             </div>
 
