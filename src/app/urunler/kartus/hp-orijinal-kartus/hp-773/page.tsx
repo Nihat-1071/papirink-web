@@ -4,7 +4,7 @@ import Header from "../../../../components/Header";
 import Footer from "../../../../components/Footer";
 import Breadcrumb from "../../../../components/Breadcrumb";
 import ScrollToTopProgress from "../../../../components/ScrollToTopProgress";
-import Hp773Client from "./Hp773Client.tsx";
+import Hp773Client from "./Hp773Client";
 
 export const dynamic = "error";
 

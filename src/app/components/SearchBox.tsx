@@ -10,6 +10,19 @@ type SearchBoxProps = {
   variant?: "header" | "plain";
 };
 
+// Türkçe karakterleri normalize et (kağıt=kagit, çip=cip vb.)
+const normalizeTR = (s: string) =>
+  s
+    .toLowerCase()
+    .trim()
+    .replaceAll("ı", "i")
+    .replaceAll("İ", "i")
+    .replaceAll("ğ", "g")
+    .replaceAll("ü", "u")
+    .replaceAll("ş", "s")
+    .replaceAll("ö", "o")
+    .replaceAll("ç", "c");
+
 export default function SearchBox({ variant = "plain" }: SearchBoxProps) {
   const router = useRouter();
 
@@ -18,9 +31,17 @@ export default function SearchBox({ variant = "plain" }: SearchBoxProps) {
   const [activeIndex, setActiveIndex] = useState(-1);
   const wrapRef = useRef<HTMLDivElement>(null);
 
+  // Fuse index: normalize edilmiş alanlarla arama
   const fuse = useMemo(() => {
-    return new Fuse(PRODUCTS_INDEX, {
-      keys: ["title", "category", "keywords"],
+    const normalized = PRODUCTS_INDEX.map((x) => ({
+      ...x,
+      _nTitle: normalizeTR(x.title),
+      _nCategory: normalizeTR(x.category),
+      _nKeywords: Array.isArray(x.keywords) ? x.keywords.map(normalizeTR).join(" ") : "",
+    }));
+
+    return new Fuse(normalized, {
+      keys: ["_nTitle", "_nCategory", "_nKeywords"],
       threshold: 0.35,
       ignoreLocation: true,
       minMatchCharLength: 2,
@@ -28,7 +49,7 @@ export default function SearchBox({ variant = "plain" }: SearchBoxProps) {
   }, []);
 
   const results = useMemo(() => {
-    const query = q.trim();
+    const query = normalizeTR(q);
     if (query.length < 2) return [];
     return fuse.search(query).slice(0, 7).map((r) => r.item);
   }, [q, fuse]);
@@ -70,6 +91,8 @@ export default function SearchBox({ variant = "plain" }: SearchBoxProps) {
       : "border border-[#e5e7eb] bg-white",
   ].join(" ");
 
+  const canOpen = q.trim().length >= 2;
+
   return (
     <div ref={wrapRef} className="relative w-full">
       <input
@@ -92,6 +115,8 @@ export default function SearchBox({ variant = "plain" }: SearchBoxProps) {
           if (e.key === "ArrowDown") {
             e.preventDefault();
             if (!open) setOpen(true);
+            if (results.length === 0) return;
+
             setActiveIndex((i) => {
               const next = Math.min(i + 1, results.length - 1);
               return next;
@@ -101,16 +126,20 @@ export default function SearchBox({ variant = "plain" }: SearchBoxProps) {
 
           if (e.key === "ArrowUp") {
             e.preventDefault();
+            if (results.length === 0) return;
+
             setActiveIndex((i) => Math.max(i - 1, -1));
             return;
           }
 
           if (e.key === "Enter") {
+            // seçili sonuç varsa ona git
             if (open && activeIndex >= 0 && results[activeIndex]) {
-              router.push(results[activeIndex].slug);
+              router.push(results[activeIndex].href);
               setOpen(false);
               return;
             }
+            // yoksa arama sayfasına git
             goSearchPage();
           }
         }}
@@ -118,7 +147,7 @@ export default function SearchBox({ variant = "plain" }: SearchBoxProps) {
         className={inputClass}
       />
 
-      {open && q.trim().length >= 2 && (
+      {open && canOpen && (
         <div className={dropdownClass}>
           {results.length > 0 ? (
             <ul className={variant === "header" ? "divide-y divide-white/10" : "divide-y divide-[#e5e7eb]"}>
@@ -126,9 +155,9 @@ export default function SearchBox({ variant = "plain" }: SearchBoxProps) {
                 const active = idx === activeIndex;
 
                 return (
-                  <li key={`${r.slug}-${(r as any).id ?? idx}`}>
+                  <li key={`${r.href}-${idx}`}>
                     <Link
-                      href={r.slug}
+                      href={r.href}
                       onClick={() => setOpen(false)}
                       onMouseEnter={() => setActiveIndex(idx)}
                       className={[
