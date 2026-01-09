@@ -1,6 +1,8 @@
 // app/page.tsx
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import HomeShowcase from "./components/HomeShowcase";
+import HomeDeals from "./components/HomeDeals";
 import Link from "next/link";
 
 const HOME_CATEGORIES = [
@@ -76,63 +78,9 @@ export default function Home() {
   return (
     <>
       <Header />
-
+      <HomeShowcase />
+      <HomeDeals />
 <main className="mx-auto max-w-6xl px-4 py-16 space-y-24">
-  
-<section className="rounded-3xl bg-zinc-50 p-8 sm:p-12">
-  <h3 className="text-2xl font-extrabold tracking-tight">
-    Ürün Gruplarımız
-  </h3>
-  <p className="mt-2 max-w-2xl text-gray-600">
-    Plotter ekosistemi için makina, sarf ve teknik çözümleri tek noktadan inceleyin.
-  </p>
-
-  <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-    {HOME_CATEGORIES.map((cat) => (
-      <Link
-        key={cat.href}
-        href={cat.href}
-        className="group rounded-2xl border bg-white p-6 shadow-sm transition hover:shadow-md hover:border-black/20"
-      >
-        <div className="text-lg font-extrabold group-hover:underline">
-          {cat.title}
-        </div>
-        <p className="mt-1 text-sm text-gray-600">
-          {cat.desc}
-        </p>
-
-        <div className="mt-4 text-sm font-semibold text-black">
-          İncele →
-        </div>
-      </Link>
-    ))}
-  </div>
-</section>
-
-<section className="px-2">
-  <h3 className="text-2xl font-extrabold tracking-tight">
-    Neden Papirink?
-  </h3>
-  <p className="mt-2 max-w-2xl text-gray-600">
-    Plotter ekosistemi için güvenilir, sürdürülebilir ve profesyonel çözümler sunuyoruz.
-  </p>
-
-  <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-    {WHY_PAPIRINK.map((item, idx) => (
-      <div
-        key={idx}
-        className="rounded-2xl border bg-white p-6 shadow-sm hover:shadow-md transition"
-      >
-        <div className="text-lg font-extrabold">
-          {item.title}
-        </div>
-        <p className="mt-2 text-sm text-gray-600">
-          {item.desc}
-        </p>
-      </div>
-    ))}
-  </div>
-</section>
 
 <section className="rounded-3xl bg-zinc-100/70 p-8 sm:p-12">
   <div className="flex items-end justify-between gap-4">
