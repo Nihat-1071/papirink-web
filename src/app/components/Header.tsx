@@ -652,16 +652,20 @@ export default function Header() {
           <div className="relative h-[80vh] min-h-[620px] overflow-hidden">
             {/* parallax video */}
             <div className="absolute inset-0 will-change-transform" style={{ transform: `translate3d(0, ${parallaxY}px, 0)` }}>
-            <video
-              src="https://yolrzcsly7vvo2vy.public.blob.vercel-storage.com/papirink.mp4"
-              className="h-full w-full object-cover"
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="metadata"
-              poster="/images/hero-poster.jpg"
-            />
+              <video
+                className="h-full w-full object-cover"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                poster="/images/hero-poster.jpg"
+              >
+              <source
+                src="https://yolrzcsly7vvo2vy.public.blob.vercel-storage.com/papirink.mp4"
+                type="video/mp4"
+              />
+              </video>
             </div>
 
             {/* overlay (scroll ile koyulaşır) */}
