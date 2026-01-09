@@ -20,37 +20,35 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="relative border-t border-white/10 bg-gradient-to-b from-[#0b1220] via-[#0e1628] to-[#0b1220] text-white">
+    <footer className="relative border-t border-slate-200 bg-gradient-to-b from-white via-slate-50 to-white text-slate-900">
       <div className="mx-auto w-full max-w-[1400px] px-4 sm:px-6 lg:px-10">
-        {/* ÜST: Sol (logo kartı tam dolu) + Orta (CTA ortalı) + Sağ (link blokları sol hizalı) */}
+        {/* ÜST: Sol (logo kartı) + Orta (CTA) + Sağ (linkler) */}
         <div className="grid gap-8 py-12 md:grid-cols-12">
-          {/* SOL: Papirink görseli tam kaplasın (logo ile modern kart) */}
+          {/* SOL: Logo kartı */}
           <div className="md:col-span-4">
-            <div className="relative h-[210px] overflow-hidden rounded-2xl border border-white/10 bg-white/14 md:h-[260px]">
-              {/* arka plan: hafif pattern + glow */}
-              <div className="absolute inset-0 bg-[radial-gradient(600px_circle_at_25%_20%,rgba(56,189,248,0.18),transparent_55%),radial-gradient(600px_circle_at_70%_80%,rgba(255,255,255,0.08),transparent_60%)]" />
-              <div className="absolute inset-0 opacity-[0.18] [background-image:linear-gradient(to_right,rgba(255,255,255,0.14)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.14)_1px,transparent_1px)] [background-size:48px_48px]" />
-              <div className="absolute inset-0 bg-gradient-to-tr from-black/30 via-black/10 to-black/25" />
+            <div className="relative h-[210px] overflow-hidden rounded-2xl border border-slate-200 bg-white md:h-[260px]">
+              {/* açık pattern + hafif glow */}
+              <div className="absolute inset-0 bg-[radial-gradient(600px_circle_at_25%_20%,rgba(56,189,248,0.14),transparent_55%),radial-gradient(600px_circle_at_70%_80%,rgba(0,0,0,0.04),transparent_60%)]" />
+              <div className="absolute inset-0 opacity-[0.10] [background-image:linear-gradient(to_right,rgba(0,0,0,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.08)_1px,transparent_1px)] [background-size:48px_48px]" />
 
-              {/* Logo büyük - “tam kaplasın” hissi */}
               <div className="absolute inset-0 flex items-center justify-center p-6">
-              <div className="relative h-40 w-[420px] sm:h-44 sm:w-[480px] md:h-48 md:w-[560px]">
-                <Image
-                  src="/brand/papirink-logo.webp"
-                  alt="Papirink"
-                  fill
-                  className="object-contain scale-[1.05] drop-shadow-[0_18px_36px_rgba(0,0,0,0.5)]"
-                  priority={false}
-                />
-              </div>
+                <div className="relative h-40 w-[420px] sm:h-44 sm:w-[480px] md:h-48 md:w-[560px]">
+                  <Image
+                    src="/brand/papirink-logo.webp"
+                    alt="Papirink"
+                    fill
+                    className="object-contain scale-[1.05] drop-shadow-[0_18px_30px_rgba(0,0,0,0.18)]"
+                    priority={false}
+                  />
+                </div>
               </div>
             </div>
           </div>
 
-          {/* ORTA: Yazı + CTA tam ortaya */}
+          {/* ORTA: Yazı + CTA */}
           <div className="md:col-span-4">
             <div className="flex h-full flex-col items-center justify-center text-center">
-              <p className="max-w-md text-sm leading-6 text-white/75">
+              <p className="max-w-md text-sm leading-6 text-slate-600">
                 Plotter ürünleri, sarf malzemeleri ve teknik servis çözümleri.
                 <br />
                 Kurumsal ve güvenilir tedarik için bizimle iletişime geçin.
@@ -59,14 +57,14 @@ export default function Footer() {
               <div className="mt-5 flex flex-wrap items-center justify-center gap-3">
                 <Link
                   href="/teklif-al"
-                  className="rounded-xl bg-white px-5 py-2.5 text-sm font-semibold text-[#0b1220] shadow-sm hover:opacity-90"
+                  className="rounded-xl bg-slate-900 px-5 py-2.5 text-sm font-extrabold text-white shadow-sm hover:bg-slate-800"
                 >
                   Teklif Al
                 </Link>
 
                 <Link
                   href="/iletisim"
-                  className="rounded-xl border border-white/15 bg-white/8 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-white/10"
+                  className="rounded-xl border border-slate-200 bg-white px-5 py-2.5 text-sm font-extrabold text-slate-900 shadow-sm hover:bg-slate-50"
                 >
                   İletişim
                 </Link>
@@ -74,11 +72,11 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* SAĞ: Ürün Kategorileri + Kurumsal (en sola hizalı) */}
+          {/* SAĞ: Link blokları */}
           <div className="md:col-span-4">
             <div className="grid gap-8 sm:grid-cols-2">
               <div>
-                <div className="text-base font-extrabold tracking-tight text-white">
+                <div className="text-base font-extrabold tracking-tight text-slate-900">
                   Ürün Kategorileri
                 </div>
                 <ul className="mt-4 space-y-2 text-sm">
@@ -86,7 +84,7 @@ export default function Footer() {
                     <li key={l.href}>
                       <Link
                         href={l.href}
-                        className="text-white/75 hover:text-white hover:underline underline-offset-4"
+                        className="text-slate-600 hover:text-slate-900 hover:underline underline-offset-4"
                       >
                         {l.label}
                       </Link>
@@ -96,7 +94,7 @@ export default function Footer() {
               </div>
 
               <div>
-                <div className="text-base font-extrabold tracking-tight text-white">
+                <div className="text-base font-extrabold tracking-tight text-slate-900">
                   Kurumsal
                 </div>
                 <ul className="mt-4 space-y-2 text-sm">
@@ -104,7 +102,7 @@ export default function Footer() {
                     <li key={l.href}>
                       <Link
                         href={l.href}
-                        className="text-white/75 hover:text-white hover:underline underline-offset-4"
+                        className="text-slate-600 hover:text-slate-900 hover:underline underline-offset-4"
                       >
                         {l.label}
                       </Link>
@@ -116,66 +114,66 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* ALT: İletişim + Harita (aynen) */}
+        {/* ALT: İletişim + Harita */}
         <div className="grid gap-8 pb-12 md:grid-cols-12">
           {/* İletişim */}
           <div className="md:col-span-7">
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur">
-              <div className="text-sm font-extrabold uppercase tracking-wide text-white/80">
+            <div className="rounded-2xl border border-slate-200 bg-white p-6">
+              <div className="text-sm font-extrabold uppercase tracking-wide text-slate-700">
                 İletişim Bilgileri
               </div>
 
               <ul className="mt-5 space-y-4 text-sm">
                 <li className="flex items-start gap-3">
-                  <Building2 className="mt-0.5 h-5 w-5 text-white/60" />
-                  <span className="text-white/75">
-                    <strong className="text-white">Adres:</strong>{" "}
+                  <Building2 className="mt-0.5 h-5 w-5 text-slate-400" />
+                  <span className="text-slate-600">
+                    <strong className="text-slate-900">Adres:</strong>{" "}
                     Kanuni Mahallesi, Bademlik Yolu Cd. 118/A Keçiören / Ankara
                   </span>
                 </li>
 
                 <li className="flex items-start gap-3">
-                  <MapPin className="mt-0.5 h-5 w-5 text-white/60" />
-                  <span className="text-white/75">
-                    <strong className="text-white">Posta Kodu:</strong> 06300
+                  <MapPin className="mt-0.5 h-5 w-5 text-slate-400" />
+                  <span className="text-slate-600">
+                    <strong className="text-slate-900">Posta Kodu:</strong> 06300
                   </span>
                 </li>
 
                 <li className="flex items-center gap-3">
-                  <Mail className="h-5 w-5 text-white/60" />
+                  <Mail className="h-5 w-5 text-slate-400" />
                   <a
                     href="mailto:info@papirink.com.tr"
-                    className="text-white/75 hover:text-white hover:underline underline-offset-4"
+                    className="text-slate-600 hover:text-slate-900 hover:underline underline-offset-4"
                   >
                     info@papirink.com.tr
                   </a>
                 </li>
 
                 <li className="flex items-center gap-3">
-                  <Phone className="h-5 w-5 text-white/60" />
+                  <Phone className="h-5 w-5 text-slate-400" />
                   <a
                     href="tel:+903125801006"
-                    className="text-white/75 hover:text-white hover:underline underline-offset-4"
+                    className="text-slate-600 hover:text-slate-900 hover:underline underline-offset-4"
                   >
                     +90 312 580 10 06
                   </a>
                 </li>
 
                 <li className="flex items-center gap-3">
-                  <Printer className="h-5 w-5 text-white/60" />
-                  <span className="text-white/75">
-                    <strong className="text-white">Faks:</strong> +90 312 580 10
-                    07
+                  <Printer className="h-5 w-5 text-slate-400" />
+                  <span className="text-slate-600">
+                    <strong className="text-slate-900">Faks:</strong> +90 312 580
+                    10 07
                   </span>
                 </li>
               </ul>
             </div>
           </div>
 
-          {/* Harita (güncel embed aynen) */}
+          {/* Harita */}
           <div className="md:col-span-5">
-            <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur">
-              <div className="px-4 py-3 text-sm font-semibold text-white/90">
+            <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white">
+              <div className="px-4 py-3 text-sm font-extrabold text-slate-900">
                 Konum
               </div>
               <div className="h-[260px] w-full">
@@ -193,20 +191,20 @@ export default function Footer() {
       </div>
 
       {/* ALT BAR */}
-      <div className="border-t border-white/10 bg-[#0b1220]">
-        <div className="mx-auto flex w-full max-w-[1400px] flex-col items-center justify-between gap-3 px-4 py-4 text-xs text-white/60 sm:flex-row sm:px-6 lg:px-10">
+      <div className="border-t border-slate-200 bg-white">
+        <div className="mx-auto flex w-full max-w-[1400px] flex-col items-center justify-between gap-3 px-4 py-4 text-xs text-slate-500 sm:flex-row sm:px-6 lg:px-10">
           <span>© {new Date().getFullYear()} Papirink</span>
 
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               href="/kvkk"
-              className="hover:text-white hover:underline underline-offset-4"
+              className="hover:text-slate-900 hover:underline underline-offset-4"
             >
               KVKK
             </Link>
             <Link
               href="/gizlilik"
-              className="hover:text-white hover:underline underline-offset-4"
+              className="hover:text-slate-900 hover:underline underline-offset-4"
             >
               Gizlilik Politikası
             </Link>

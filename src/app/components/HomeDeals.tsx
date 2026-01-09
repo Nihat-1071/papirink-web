@@ -4,59 +4,59 @@ import Link from "next/link";
 
 type DealItem = {
   title: string;
-  href: string; // detay sayfası varsa oraya, yoksa /iletisim
+  href: string; // kategori/detay sayfası
   imageSrc: string;
   imageAlt: string;
   badge?: string;
 };
 
 export default function HomeDeals() {
-  // Not: görselleri sen koyacaksın. Şimdilik örnek path verdim.
-  // İstersen hepsini aynı klasöre at: /public/images/firsat/
-const items: DealItem[] = [
-  {
-    title: "Mat Coated Kağıtları",
-    href: "/urunler/kagit/mat-coated-kagitlari",
-    imageSrc: "/images/urunler/kagit/mat-coated-kagitlari/mat-coated-kagidi.webp",
-    imageAlt: "Mat coated kağıdı rulo",
-    badge: "Popüler",
-  },
-  {
-    title: "Plotter Kağıtları",
-    href: "/urunler/kagit/plotter-kagitlari",
-    imageSrc: "/images/urunler/kagit/plotter-kagit/plotter-kagidi.webp",
-    imageAlt: "Plotter kağıdı rulo",
-    badge: "Fırsat",
-  },
-  {
-    title: "Fotoğraf Kağıtları",
-    href: "/urunler/kagit/fotograf-kagitlari",
-    imageSrc: "/images/urunler/kagit/fotograf-kagitlari/fotograf-kagidi.webp",
-    imageAlt: "Fotoğraf kağıdı çeşitleri",
-  },
-  {
-    title: "Pamuklu Kanvas (Cotton)",
-    href: "/urunler/kagit/pamuklu-kanvas-cotton",
-    imageSrc: "/images/urunler/kagit/pamuklu-kanvas-cotton/cotton-kanvas.webp",
-    imageAlt: "Pamuklu kanvas rulo",
-    badge: "Yeni",
-  },
-  {
-    title: "Polyester Kanvas",
-    href: "/urunler/kagit/polyester-kanvas",
-    imageSrc: "/images/urunler/kagit/polyester-kanvas/polyester-kanvas.webp",
-    imageAlt: "Polyester kanvas rulo",
-  },
-  {
-    title: "Yapışkanlı Kağıtlar",
-    href: "/urunler/kagit/yapiskanli-kagitlar",
-    imageSrc: "/images/urunler/kagit/yapiskanli-kagitlar/mat-yapiskanli-kagit.webp",
-    imageAlt: "Yapışkanlı kağıt mat",
-  },
-];
+  const items: DealItem[] = [
+    {
+      title: "Mat Coated Kağıtları",
+      href: "/urunler/kagit/mat-coated-kagitlari",
+      imageSrc:
+        "/images/urunler/kagit/mat-coated-kagitlari/mat-coated-kagidi.webp",
+      imageAlt: "Mat coated kağıdı rulo",
+      badge: "Popüler",
+    },
+    {
+      title: "Plotter Kağıtları",
+      href: "/urunler/kagit/plotter-kagitlari",
+      imageSrc: "/images/urunler/kagit/plotter-kagit/plotter-kagidi.webp",
+      imageAlt: "Plotter kağıdı rulo",
+      badge: "Fırsat",
+    },
+    {
+      title: "Fotoğraf Kağıtları",
+      href: "/urunler/kagit/fotograf-kagitlari",
+      imageSrc: "/images/urunler/kagit/fotograf-kagitlari/fotograf-kagidi.webp",
+      imageAlt: "Fotoğraf kağıdı çeşitleri",
+    },
+    {
+      title: "Pamuklu Kanvas (Cotton)",
+      href: "/urunler/kagit/pamuklu-kanvas-cotton",
+      imageSrc: "/images/urunler/kagit/pamuklu-kanvas-cotton/cotton-kanvas.webp",
+      imageAlt: "Pamuklu kanvas rulo",
+      badge: "Yeni",
+    },
+    {
+      title: "Polyester Kanvas",
+      href: "/urunler/kagit/polyester-kanvas",
+      imageSrc: "/images/urunler/kagit/polyester-kanvas/polyester-kanvas.webp",
+      imageAlt: "Polyester kanvas rulo",
+    },
+    {
+      title: "Yapışkanlı Kağıtlar",
+      href: "/urunler/kagit/yapiskanli-kagitlar",
+      imageSrc:
+        "/images/urunler/kagit/yapiskanli-kagitlar/mat-yapiskanli-kagit.webp",
+      imageAlt: "Yapışkanlı kağıt mat",
+    },
+  ];
 
   return (
-    <section className="mx-auto w-full max-w-[1400px] px-3 sm:px-6 pb-14">
+    <section className="mx-auto w-full max-w-[1400px] px-3 pb-14 sm:px-6">
       <div className="grid gap-6 lg:grid-cols-[360px_1fr]">
         {/* SOL PANEL */}
         <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
@@ -74,8 +74,10 @@ const items: DealItem[] = [
               <h2 className="mt-4 text-3xl font-extrabold tracking-tight">
                 Fırsat Ürünleri
               </h2>
+
               <p className="mt-2 max-w-xs text-sm text-white/90">
-                Kalite–fiyat dengesi yüksek ürünler. Fiyat ve stok için hızlıca teklif al.
+                Kalite–fiyat dengesi yüksek ürünler. Fiyat ve stok için hızlıca
+                teklif al.
               </p>
 
               <div className="mt-6 flex flex-col gap-2">
@@ -85,6 +87,7 @@ const items: DealItem[] = [
                 >
                   Fiyat Al / Teklif İste →
                 </Link>
+
                 <Link
                   href="/urunler/kagit"
                   className="inline-flex items-center justify-center rounded-xl border border-white/30 bg-white/10 px-4 py-3 text-sm font-extrabold hover:bg-white/15"
@@ -111,8 +114,9 @@ const items: DealItem[] = [
           {items.map((p) => (
             <div
               key={p.title}
-              className="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+              className="group flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
             >
+              {/* Ürün kısmı (görsel+başlık) tıklanabilir */}
               <Link href={p.href} className="block">
                 <div className="relative aspect-[16/10] bg-slate-100">
                   <Image
@@ -133,20 +137,21 @@ const items: DealItem[] = [
                     {p.title}
                   </h3>
 
-                  <div className="mt-3">
-                    <Link
-                    href="/iletisim"
-                    className="inline-flex w-full items-center justify-center rounded-xl bg-slate-900 px-4 py-2.5 text-sm font-extrabold text-white hover:opacity-90"
-                    >
-                    Fiyat Alınız →
-                    </Link>
-                  </div>
-
                   <p className="mt-3 text-xs text-slate-500">
                     Aynı gün dönüş • WhatsApp / Telefon
                   </p>
                 </div>
               </Link>
+
+              {/* Buton en altta hizalı (Link içinde Link yok) */}
+              <div className="mt-auto px-4 pb-4">
+                <Link
+                  href="/iletisim"
+                  className="inline-flex w-full items-center justify-center rounded-xl bg-slate-900 px-4 py-2.5 text-sm font-extrabold text-white hover:opacity-90"
+                >
+                  Fiyat Alınız →
+                </Link>
+              </div>
             </div>
           ))}
         </div>

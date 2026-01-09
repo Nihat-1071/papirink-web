@@ -8,8 +8,28 @@ import Breadcrumb from "../components/Breadcrumb";
 
 export const dynamic = "error";
 
-const baseUrl = "https://papirink.com"; // TODO: kendi domaininle değiştir
+const baseUrl = "https://papirink.com";
 const pagePath = "/iletisim";
+
+const CONTACT = {
+  phoneDisplay: "+90 501 032 04 06",
+  /** sadece rakam (başında 90 ile) */
+  phoneDigitsTR: "905010320406",
+  email: "info@papirink.com",
+  address: "Türkiye (Adres bilginizi buraya yazın)",
+};
+
+const CONTACT_LINKS = {
+  phoneHref: `tel:+${CONTACT.phoneDigitsTR}`,
+  whatsappHref: `https://wa.me/${CONTACT.phoneDigitsTR}`,
+  emailHref: `mailto:${CONTACT.email}`,
+};
+
+/**
+ * Google Maps embed linkini buraya koy:
+ * Örn: https://www.google.com/maps/embed?pb=....
+ */
+const MAP_EMBED_URL = ""; // boşsa demo alan gösterilecek
 
 export const metadata: Metadata = {
   title: "İletişim | Papirink",
@@ -21,19 +41,36 @@ export const metadata: Metadata = {
     title: "İletişim | Papirink",
     description:
       "Plotter çözümleri, sarf malzemeleri ve teknik destek için Papirink’e ulaşın.",
+    siteName: "Papirink",
   },
 };
 
-const CONTACT = {
-  phoneDisplay: "+90 5XX XXX XX XX",
-  phoneHref: "tel:+905XXXXXXXXX",
-  whatsappHref: "https://wa.me/90XXXXXXXXXX",
-  email: "info@papirink.com",
-  emailHref: "mailto:info@papirink.com",
-  address: "Türkiye (Adres bilginizi buraya yazın)",
-};
+function buildWhatsAppMessage(params: {
+  name: string;
+  contact: string;
+  product: string;
+  message: string;
+}) {
+  const lines = [
+    "Merhaba Papirink,",
+    "",
+    `Ad Soyad: ${params.name || "-"}`,
+    `İletişim: ${params.contact || "-"}`,
+    `Ürün/Model: ${params.product || "-"}`,
+    "",
+    `Mesaj: ${params.message || "-"}`,
+  ];
+  return encodeURIComponent(lines.join("\n"));
+}
 
 export default function IletisimPage() {
+  // Bu sayfa server component; demo form alanları state tutmuyor.
+  // “WhatsApp ile Gönder” için kullanıcıdan input alıp JS ile yönlendirmek istiyorsan,
+  // bu bloğu client component’e taşırız. Şimdilik CTA üzerinden en hızlı akış.
+  const quickWhatsappHref = `${CONTACT_LINKS.whatsappHref}?text=${encodeURIComponent(
+    "Merhaba Papirink, teklif/bilgi almak istiyorum."
+  )}`;
+
   return (
     <>
       <Header />
@@ -41,9 +78,7 @@ export default function IletisimPage() {
       <main className="bg-[#f5f7fb] text-slate-900">
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-12">
           {/* Breadcrumb */}
-          <Breadcrumb
-            items={[{ label: "Ana Sayfa", href: "/" }, { label: "İletişim" }]}
-          />
+          <Breadcrumb items={[{ label: "Ana Sayfa", href: "/" }, { label: "İletişim" }]} />
 
           {/* Hero */}
           <div className="mt-6 grid gap-6 lg:grid-cols-2">
@@ -58,7 +93,7 @@ export default function IletisimPage() {
 
               <div className="mt-6 flex flex-wrap gap-3">
                 <a
-                  href={CONTACT.whatsappHref}
+                  href={quickWhatsappHref}
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center justify-center rounded-xl bg-[#22c55e] px-5 py-3 text-sm font-extrabold text-white hover:opacity-95"
@@ -74,7 +109,7 @@ export default function IletisimPage() {
                 </Link>
 
                 <a
-                  href={CONTACT.phoneHref}
+                  href={CONTACT_LINKS.phoneHref}
                   className="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-extrabold text-slate-900 hover:bg-slate-50"
                 >
                   Ara
@@ -86,7 +121,7 @@ export default function IletisimPage() {
                   <div className="text-xs font-bold text-slate-500">Telefon</div>
                   <a
                     className="mt-1 block text-sm font-extrabold text-slate-900 hover:underline"
-                    href={CONTACT.phoneHref}
+                    href={CONTACT_LINKS.phoneHref}
                   >
                     {CONTACT.phoneDisplay}
                   </a>
@@ -96,7 +131,7 @@ export default function IletisimPage() {
                   <div className="text-xs font-bold text-slate-500">E-posta</div>
                   <a
                     className="mt-1 block text-sm font-extrabold text-slate-900 hover:underline"
-                    href={CONTACT.emailHref}
+                    href={CONTACT_LINKS.emailHref}
                   >
                     {CONTACT.email}
                   </a>
@@ -109,6 +144,10 @@ export default function IletisimPage() {
                   </div>
                 </div>
               </div>
+
+              <div className="mt-6 text-xs text-slate-500">
+                * En hızlı dönüş: WhatsApp → Telefon → E-posta
+              </div>
             </div>
 
             {/* Right: Form-like card (statik, demo) */}
@@ -116,11 +155,12 @@ export default function IletisimPage() {
               <div className="flex items-center justify-between gap-3">
                 <h2 className="text-xl font-extrabold">Hızlı Mesaj</h2>
                 <span className="rounded-full bg-blue-50 px-3 py-1 text-xs font-bold text-blue-700">
-                  Demo
+                  Pratik
                 </span>
               </div>
               <p className="mt-2 text-sm text-slate-600">
-                Şimdilik formu backend’e bağlamadık. En hızlı iletişim WhatsApp veya telefon.
+                Formu şimdilik backend’e bağlamadık. Aşağıdaki şablonu kopyalayıp WhatsApp’a
+                gönderebilirsin.
               </p>
 
               <div className="mt-5 grid gap-3">
@@ -141,12 +181,20 @@ export default function IletisimPage() {
                   className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none focus:border-blue-300 focus:ring-4 focus:ring-blue-100"
                   placeholder="Mesajınız..."
                 />
-                <button
-                  type="button"
-                  className="rounded-xl bg-blue-600 px-5 py-3 text-sm font-extrabold text-white hover:bg-blue-700"
+
+                <a
+                  href={`${CONTACT_LINKS.whatsappHref}?text=${buildWhatsAppMessage({
+                    name: "Ad Soyad",
+                    contact: "Telefon / E-posta",
+                    product: "Ürün/Model",
+                    message: "Mesaj",
+                  })}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center justify-center rounded-xl bg-[#22c55e] px-5 py-3 text-sm font-extrabold text-white hover:opacity-95"
                 >
-                  Mesaj Gönder (Demo)
-                </button>
+                  WhatsApp ile Gönder (Şablon)
+                </a>
               </div>
 
               <div className="mt-6 rounded-xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-600">
@@ -154,21 +202,9 @@ export default function IletisimPage() {
                 <ul className="mt-2 list-disc pl-5 space-y-1">
                   <li>Marka/model + ölçü + kullanım amacı yaz.</li>
                   <li>Örn: “Canon PRO-4000, 44 inç, teknik çizim.”</li>
+                  <li>Kağıtta: “80 gr / 90 gr – 914mm – 50m” gibi.</li>
                 </ul>
               </div>
-            </div>
-          </div>
-
-          {/* Map placeholder */}
-          <div className="mt-10 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-            <div className="flex items-center justify-between gap-3">
-              <h2 className="text-xl font-extrabold">Konum</h2>
-              <span className="text-xs text-slate-500">
-                (Google Maps embed ekleyebiliriz)
-              </span>
-            </div>
-            <div className="mt-4 rounded-xl bg-slate-100 p-10 text-center text-slate-500">
-              Harita Alanı (Demo)
             </div>
           </div>
         </section>
