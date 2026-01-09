@@ -1,0 +1,21 @@
+// src/app/robots.txt/route.ts
+import { NextResponse } from "next/server";
+
+export const dynamic = "force-static"; // build'de üret, hızlı olsun
+
+export function GET() {
+  // Vercel'de domain otomatik gelir, yoksa fallback:
+  const host =
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    "https://papirink.com"; // kendi domainini buraya yaz
+
+  const body = `User-agent: *
+Allow: /
+
+Sitemap: ${host}/sitemap.xml
+`;
+
+  return new NextResponse(body, {
+    headers: { "Content-Type": "text/plain; charset=utf-8" },
+  });
+}

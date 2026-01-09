@@ -1,0 +1,67 @@
+// src/app/sitemap.xml/route.ts
+import { NextResponse } from "next/server";
+
+export const dynamic = "force-static";
+
+type UrlItem = {
+  loc: string;
+  lastmod?: string;
+  changefreq?: "daily" | "weekly" | "monthly" | "yearly";
+  priority?: number;
+};
+
+function xmlEscape(s: string) {
+  return s
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&apos;");
+}
+
+export function GET() {
+  const host =
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    "https://papirink.com"; // kendi domain
+
+  // ✅ Buraya sitenin önemli sayfalarını koy
+  // Papirink’te neler vardıysa şimdilik minimum set ile başlayalım:
+  const urls: UrlItem[] = [
+    { loc: `${host}/`, changefreq: "weekly", priority: 1.0 },
+    { loc: `${host}/urunler`, changefreq: "weekly", priority: 0.9 },
+    { loc: `${host}/hakkimizda`, changefreq: "monthly", priority: 0.6 },
+    { loc: `${host}/iletisim`, changefreq: "monthly", priority: 0.6 },
+
+    // Örnek kategori sayfaları (varsa aç)
+    { loc: `${host}/urunler/makinalar`, changefreq: "weekly", priority: 0.8 },
+    { loc: `${host}/urunler/kartus`, changefreq: "weekly", priority: 0.8 },
+    { loc: `${host}/urunler/kagit`, changefreq: "weekly", priority: 0.8 },
+    { loc: `${host}/urunler/toner`, changefreq: "weekly", priority: 0.8 },
+  ];
+
+  const now = new Date().toISOString();
+
+  const body =
+    `<?xml version="1.0" encoding="UTF-8"?>\n` +
+    `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
+    urls
+      .map((u) => {
+        const lastmod = u.lastmod ?? now;
+        return (
+          `  <url>\n` +
+          `    <loc>${xmlEscape(u.loc)}</loc>\n` +
+          `    <lastmod>${xmlEscape(lastmod)}</lastmod>\n` +
+          (u.changefreq ? `    <changefreq>${u.changefreq}</changefreq>\n` : "") +
+          (typeof u.priority === "number"
+            ? `    <priority>${u.priority.toFixed(1)}</priority>\n`
+            : "") +
+          `  </url>\n`
+        );
+      })
+      .join("") +
+    `</urlset>\n`;
+
+  return new NextResponse(body, {
+    headers: { "Content-Type": "application/xml; charset=utf-8" },
+  });
+}
