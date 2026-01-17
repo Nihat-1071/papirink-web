@@ -213,12 +213,10 @@ export default function Header() {
               className="relative mx-auto flex w-full max-w-[1400px] items-center justify-between gap-5 px-4 sm:px-6 lg:px-10"
             >
               {/* LOGO */}
-              <Link
-                href="/"
-                className={`group flex items-center rounded-2xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:bg-slate-50
-                  ${(forceCompact || scrolled) ? "px-2 py-1" : "px-3 py-2"}
-                `}
-              >
+                <Link
+                  href="/"
+                  className="group flex items-center transition-all duration-300"
+                >
                 <Image
                   src="/brand/papirink-logo.webp"
                   alt="Papirink | Kağıt & Mürekkep"
@@ -508,74 +506,6 @@ className={`text-sm font-semibold transition ${
       )}
 
       {/* HOME HERO (big video background, header videonun içinde gibi görünür) */}
-      {isHome && (
-        <section className="relative -mt-[140px] w-full overflow-hidden">
-          {/* -mt: header şeffafken video “arkaya” gelsin (140px güvenli bir değer) */}
-          <div className="relative h-[80vh] min-h-[620px] overflow-hidden">
-            {/* parallax video */}
-            <div className="absolute inset-0 will-change-transform" style={{ transform: `translate3d(0, ${parallaxY}px, 0)` }}>
-              <video
-                className="h-full w-full object-cover"
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="metadata"
-                poster="/images/hero-poster.jpg"
-              >
-              <source
-                src="https://yolrzcsly7vvo2vy.public.blob.vercel-storage.com/papirink.mp4"
-                type="video/mp4"
-              />
-              </video>
-            </div>
-
-            {/* overlay (scroll ile koyulaşır) */}
-            <div className="absolute inset-0" style={{ backgroundColor: `rgba(0,0,0,${overlayAlpha})` }} />
-
-            {/* content */}
-            <div
-              className="relative mx-auto flex h-full w-full max-w-[1400px] flex-col justify-end items-start px-4 sm:px-6 lg:px-10 pb-10 sm:pb-14"
-              style={{ paddingTop: headerH }}
-            >
-            <h1 className="max-w-3xl text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
-              Plotter ekosistemi için tek noktadan çözüm
-            </h1>
-
-            <p className="mt-3 max-w-2xl text-base sm:text-lg text-white/85">
-              Makina, mürekkep, kâğıt ve sarf malzemelerinde hızlı tedarik. Teknik servis desteğiyle birlikte.
-            </p>
-
-              <div className="mt-6 flex flex-wrap items-center gap-3">
-                <Link
-                  href="/urunler/makinalar"
-                  className="rounded-xl bg-white px-6 py-3 text-sm font-bold text-black hover:opacity-90"
-                >
-                  Makinalar
-                </Link>
-
-                <Link
-                  href="/teklif-al"
-                  className="rounded-xl border border-white/50 bg-white/0 px-5 py-2.5 text-sm font-extrabold text-white hover:bg-white/10"
-                >
-                  Teklif Al
-                </Link>
-              </div>
-              <div className="mt-5 flex flex-wrap gap-2">
-                {HERO_CATEGORIES.map((c) => (
-                  <Link
-                    key={`${c.label}-${c.href}`}
-                    href={c.href}
-                    className="rounded-full border border-white/15 bg-white/[0.06] px-4 py-2 text-xs sm:text-sm font-semibold text-white/90 hover:bg-white/[0.10]"
-                  >
-                    {c.label}
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
     </>
   );
 }
