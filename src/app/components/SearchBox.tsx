@@ -80,14 +80,14 @@ export default function SearchBox({ variant = "plain" }: SearchBoxProps) {
   const inputClass = [
     "w-full rounded-xl px-4 py-2.5 text-sm outline-none transition",
     variant === "header"
-      ? "border border-white/15 bg-white/10 text-white placeholder:text-white/60 focus:border-white/25 focus:ring-4 focus:ring-white/10"
+      ? "border border-slate-200 bg-white text-[#0b1b3a] placeholder:text-slate-500 focus:border-cyan-300 focus:ring-4 focus:ring-cyan-100"
       : "border border-[#e5e7eb] bg-white text-slate-900 placeholder:text-slate-400 focus:border-blue-300 focus:ring-4 focus:ring-blue-100",
   ].join(" ");
 
   const dropdownClass = [
     "absolute left-0 right-0 top-[calc(100%+8px)] z-50 overflow-hidden rounded-2xl shadow-2xl",
     variant === "header"
-      ? "border border-white/10 bg-[#0b1220]"
+      ? "border border-slate-200 bg-white"
       : "border border-[#e5e7eb] bg-white",
   ].join(" ");
 
@@ -150,7 +150,7 @@ export default function SearchBox({ variant = "plain" }: SearchBoxProps) {
       {open && canOpen && (
         <div className={dropdownClass}>
           {results.length > 0 ? (
-            <ul className={variant === "header" ? "divide-y divide-white/10" : "divide-y divide-[#e5e7eb]"}>
+            <ul className="divide-y divide-slate-200">
               {results.map((r, idx) => {
                 const active = idx === activeIndex;
 
@@ -164,17 +164,17 @@ export default function SearchBox({ variant = "plain" }: SearchBoxProps) {
                         "block px-4 py-3 transition",
                         variant === "header"
                           ? active
-                            ? "bg-white/10"
-                            : "hover:bg-white/5"
+                            ? "bg-cyan-50"
+                            : "hover:bg-slate-50"
                           : active
                             ? "bg-blue-50"
                             : "hover:bg-blue-50",
                       ].join(" ")}
                     >
-                      <div className={variant === "header" ? "text-sm font-extrabold text-white" : "text-sm font-extrabold text-slate-900"}>
+                      <div className="text-sm font-extrabold text-[#0b1b3a]">
                         {r.title}
                       </div>
-                      <div className={variant === "header" ? "mt-0.5 text-xs text-white/60" : "mt-0.5 text-xs text-slate-500"}>
+                      <div className="mt-0.5 text-xs text-slate-500">
                         {r.category}
                       </div>
                     </Link>
@@ -189,7 +189,7 @@ export default function SearchBox({ variant = "plain" }: SearchBoxProps) {
                   className={[
                     "w-full px-4 py-3 text-left text-sm font-extrabold transition",
                     variant === "header"
-                      ? "text-cyan-200 hover:bg-white/5"
+                      ? "text-cyan-700 hover:bg-cyan-50"
                       : "text-[#2563eb] hover:bg-blue-50",
                   ].join(" ")}
                 >

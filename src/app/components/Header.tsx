@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import SearchBox from "./SearchBox";
 import TeklifAlButton from "@/app/components/TeklifAlButton";
+import ProductsMegaMenu from "./ProductsMegaMenu";
 
 const HERO_CATEGORIES = [
   { label: "Kartuş", href: "/urunler/kartus" },
@@ -123,11 +124,6 @@ export default function Header() {
 
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  const [activeGroup, setActiveGroup] = useState(PRODUCTS_MENU[0]?.group ?? "Makinalar");
-  useEffect(() => {
-    if (productsOpen) setActiveGroup(PRODUCTS_MENU[0]?.group ?? "Makinalar");
-  }, [productsOpen]);
-
   // Mega menü açıkken body scroll lock
   useEffect(() => {
     if (!productsOpen && !mobileOpen) return;
@@ -180,7 +176,6 @@ export default function Header() {
   return () => window.removeEventListener("scroll", onScroll);
 }, [forceCompact]);
 
-  const productsCloseTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const corpCloseTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const wrapRef = useOutsideClose<HTMLDivElement>(() => {
@@ -202,14 +197,14 @@ export default function Header() {
           ref={headerBarRef}
           className={`relative transition-all duration-300
             ${isHome && scrollY < 40
-              ? "bg-transparent py-4"
-              : "border-b border-white/10 bg-[#050914]/92 backdrop-blur-xl py-2 shadow-xl"
+              ? "bg-white/80 py-4 backdrop-blur-md"
+              : "border-b border-slate-200 bg-white/95 backdrop-blur-xl py-2 shadow-[0_10px_30px_rgba(2,6,23,0.08)]"
             }
           `}
         >
           {/* Home'da en üstteyken cam hissi (opsiyonel ama şık) */}
           {isHome && scrollY < 40 && (
-            <div className="pointer-events-none absolute inset-0 bg-white/5 backdrop-blur-md" />
+            <div className="pointer-events-none absolute inset-0 bg-white/60" />
           )}
 
           <div className="relative">
@@ -220,7 +215,7 @@ export default function Header() {
               {/* LOGO */}
               <Link
                 href="/"
-                className={`group flex items-center rounded-2xl border border-white/15 bg-white/10 backdrop-blur-md shadow-lg shadow-black/20 transition-all duration-300 hover:bg-white/15
+                className={`group flex items-center rounded-2xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:bg-slate-50
                   ${(forceCompact || scrolled) ? "px-2 py-1" : "px-3 py-2"}
                 `}
               >
@@ -237,7 +232,7 @@ export default function Header() {
               </Link>
 
               {/* DESKTOP SEARCH */}
-              <div className="hidden md:block w-full max-w-sm rounded-2xl border border-white/10 bg-white/5 px-2 py-2 backdrop-blur-md">
+              <div className="hidden md:block w-full max-w-sm rounded-2xl border border-slate-200 bg-white/90 px-2 py-2 shadow-sm backdrop-blur-md">
                 <SearchBox variant="header" />
               </div>
 
@@ -247,8 +242,8 @@ export default function Header() {
                   href="/"
                   className={`text-sm font-semibold transition ${
                     pathname === "/"
-                      ? "text-white border-b-2 border-cyan-300 pb-1"
-                      : "text-white/80 hover:text-white hover:drop-shadow"
+                    ? "text-[#0b1b3a] border-b-2 border-cyan-600 pb-1"
+                    : "text-slate-700 hover:text-[#0b1b3a]"
                   }`}
                 >
                   Ana Sayfa
@@ -263,8 +258,8 @@ export default function Header() {
                       setCorpOpen(false);
                       setMobileOpen(false);
                     }}
-                    className={`rounded-xl border border-white/15 bg-white/10 px-3 py-2 text-sm font-semibold text-white transition hover:bg-white/15
-                      ${pathname.startsWith("/urunler") ? "ring-1 ring-white/30" : "text-white/90"}
+                    className={`rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-[#0b1b3a] transition hover:bg-slate-50
+                      ${pathname.startsWith("/urunler") ? "ring-1 ring-[#0b1b3a]/15" : ""}
                     `}
                     aria-haspopup="menu"
                     aria-expanded={productsOpen}
@@ -272,145 +267,12 @@ export default function Header() {
                     Ürünler ▾
                   </button>
 
-                  {productsOpen && (
-                    <div className="fixed inset-0 z-[9999]">
-                      {/* backdrop */}
-                      <button
-                        aria-label="Kapat"
-                        className="absolute inset-0 bg-black/50"
-                        onClick={() => setProductsOpen(false)}
-                        type="button"
-                      />
-
-                      {/* panel */}
-                      <div className="absolute left-0 right-0 pt-2" style={{ top: headerH, bottom: 0 }}>
-                        <div className="mx-auto w-full max-w-[1400px] px-4 sm:px-6 lg:px-10">
-                          <div
-                            className="rounded-2xl border border-white/10 bg-[#0b1220] shadow-2xl max-h-[80vh] overflow-hidden"
-                            role="menu"
-                          >
-                            {/* top strip */}
-                            <div className="flex items-center justify-between border-b border-white/10 bg-zinc-950 px-5 py-3">
-                              <Link
-                                href="/urunler"
-                                className="text-sm font-extrabold text-white hover:underline"
-                                onClick={() => setProductsOpen(false)}
-                              >
-                                Tüm Ürünler →
-                              </Link>
-
-                              <button
-                                type="button"
-                                onClick={() => setProductsOpen(false)}
-                                className="rounded-lg border border-white/15 bg-white/5 px-3 py-1.5 text-sm font-semibold text-white hover:bg-white/10"
-                              >
-                                Kapat ✕
-                              </button>
-                            </div>
-
-                            {/* content */}
-                            <div className="bg-[#070b13]">
-                              <div className="px-6 py-6">
-                                {/* Açıklama / küçük başlık */}
-                                <div className="mb-4 flex items-center justify-between">
-                                  <div>
-                                    <div className="text-xs font-semibold tracking-wide text-white/50">
-                                      ÜRÜN KATEGORİLERİ
-                                    </div>
-                                    <div className="text-sm font-semibold text-white/80">
-                                      İhtiyacınıza göre alt kategoriyi seçin.
-                                    </div>
-                                  </div>
-
-                                  <Link
-                                    href="/urunler"
-                                    className="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-xs font-bold text-white hover:bg-white/10"
-                                    onClick={() => setProductsOpen(false)}
-                                  >
-                                    Tüm Ürünler →
-                                  </Link>
-                                </div>
-
-                                {/* Hover liste + sağ içerik */}
-                                <div className="grid gap-4 lg:grid-cols-[320px_1fr]">
-                                  {/* SOL: ana kategori listesi */}
-                                  <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-2">
-                                    {PRODUCTS_MENU.map((g) => {
-                                      const active = g.group === activeGroup;
-                                      return (
-                                        <div key={g.group} className="px-1">
-                                          <button
-                                            type="button"
-                                            onMouseEnter={() => setActiveGroup(g.group)}
-                                            onFocus={() => setActiveGroup(g.group)}
-                                            onClick={() => setActiveGroup(g.group)}
-                                            className={`w-full rounded-xl px-4 py-3 text-left text-sm font-extrabold transition flex items-center justify-between
-                                              ${active ? "bg-white text-black" : "text-white/85 hover:bg-white/10 hover:text-white"}`}
-                                          >
-                                            <span>{g.group}</span>
-                                            <span className={`${active ? "text-black/50" : "text-white/30"}`}>→</span>
-                                          </button>
-
-                                          {/* Ana kategoriye git linki (opsiyonel, şık) */}
-                                          <Link
-                                            href={g.href}
-                                            onClick={() => setProductsOpen(false)}
-                                            className={`mt-1 block rounded-lg px-4 py-2 text-xs font-semibold transition
-                                              ${active ? "text-black/70 hover:underline" : "text-white/45 hover:text-white/70"}`}
-                                          >
-                                            {g.group} sayfasına git
-                                          </Link>
-                                        </div>
-                                      );
-                                    })}
-                                  </div>
-
-                                  {/* SAĞ: seçilen grubun alt kategorileri */}
-                                  <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4">
-                                    {PRODUCTS_MENU.filter((x) => x.group === activeGroup).map((group) => (
-                                      <div key={group.group}>
-                                        <div className="mb-3 flex items-center justify-between">
-                                          <div className="text-sm font-extrabold text-white">{group.group}</div>
-                                          <div className="text-xs font-semibold text-white/45">
-                                            {group.items.length} alt kategori
-                                          </div>
-                                        </div>
-
-                                        <div className="flex flex-wrap gap-2">
-                                          {group.items.map((it, idx) => (
-                                            <Link
-                                              key={`${group.group}-${it.href}-${idx}`}
-                                              href={it.href}
-                                              onClick={() => setProductsOpen(false)}
-                                              className="rounded-full border border-cyan-200/15 bg-cyan-200/5 px-4 py-2 text-sm font-semibold text-white/85
-                                                        transition hover:border-cyan-200/35 hover:bg-cyan-200/10 hover:text-white active:scale-[0.98]"
-                                            >
-                                              {it.label}
-                                            </Link>
-                                          ))}
-                                        </div>
-
-                                        {/* alt şerit */}
-                                        <div className="mt-5 flex items-center justify-end">
-                                          <button
-                                            type="button"
-                                            onClick={() => setProductsOpen(false)}
-                                            className="rounded-xl border border-white/15 bg-white/5 px-4 py-2 text-sm font-bold text-white hover:bg-white/10"
-                                          >
-                                            Kapat ✕
-                                          </button>
-                                        </div>
-                                      </div>
-                                    ))}
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  )}
+                  <ProductsMegaMenu
+                    open={productsOpen}
+                    onClose={() => setProductsOpen(false)}
+                    headerH={headerH}
+                    menu={PRODUCTS_MENU}
+                  />
                 </div>
 
                 {/* KURUMSAL */}
@@ -435,8 +297,8 @@ export default function Header() {
                     onClick={() => setCorpOpen((v) => !v)}
                     className={`text-sm font-semibold transition ${
                       pathname.startsWith("/kurumsal")
-                        ? "text-white border-b-2 border-white pb-1"
-                        : "text-white/80 hover:text-white"
+                        ? "text-[#0b1b3a] border-b-2 border-cyan-600 pb-1"
+                        : "text-slate-700 hover:text-[#0b1b3a]"
                     }`}
                     aria-haspopup="menu"
                     aria-expanded={corpOpen}
@@ -458,14 +320,14 @@ export default function Header() {
                           setCorpOpen(false);
                         }, 220);
                       }}
-                      className="absolute left-0 top-full z-[9999] mt-3 w-64 overflow-hidden rounded-xl border border-white/10 bg-[#0b1220] shadow-2xl"
+                      className="absolute left-0 top-full z-[9999] mt-3 w-64 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-[0_20px_60px_rgba(2,6,23,0.12)]"
                     >
                       {CORPORATE_MENU.map((it, idx) => (
                         <Link
                           key={`${it.href}-${idx}`}
                           href={it.href}
                           onClick={() => setCorpOpen(false)}
-                          className="block px-4 py-3 text-sm font-semibold text-white/85 hover:bg-white/10 hover:text-white"
+                          className="block px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50 hover:text-[#0b1b3a]"
                         >
                           {it.label}
                         </Link>
@@ -476,29 +338,29 @@ export default function Header() {
 
                 <Link
                   href="/blog"
-                  className={`text-sm font-semibold transition ${
-                    pathname.startsWith("/blog")
-                      ? "text-white border-b-2 border-white pb-1"
-                      : "text-white/80 hover:text-white"
-                  }`}
+className={`text-sm font-semibold transition ${
+  pathname.startsWith("/blog")
+    ? "text-[#0b1b3a] border-b-2 border-cyan-600 pb-1"
+    : "text-slate-700 hover:text-[#0b1b3a]"
+}`}
                 >
                   Blog
                 </Link>
 
                 <Link
                   href="/iletisim"
-                  className={`text-sm font-semibold transition ${
-                    pathname === "/iletisim"
-                      ? "text-white border-b-2 border-white pb-1"
-                      : "text-white/80 hover:text-white"
-                  }`}
+className={`text-sm font-semibold transition ${
+  pathname === "/iletisim"
+    ? "text-[#0b1b3a] border-b-2 border-cyan-600 pb-1"
+    : "text-slate-700 hover:text-[#0b1b3a]"
+}`}
                 >
                   İletişim
                 </Link>
 
                 <TeklifAlButton
                   phone="903125801006" // istersen +90 dahil bile yazabilirsin, normalize ediyor
-                  className="rounded-xl bg-white px-5 py-2.5 text-sm font-bold text-black hover:bg-zinc-100"
+                  className="rounded-xl border border-slate-200 bg-[#0b1b3a] px-5 py-2.5 text-sm font-bold text-white hover:opacity-90"
                 >
                   Teklif Al
                 </TeklifAlButton>
@@ -521,7 +383,7 @@ export default function Header() {
                     setProductsOpen(false);
                     setCorpOpen(false);
                   }}
-                  className="rounded-lg border border-white/15 bg-white/10 px-3 py-2 text-sm font-semibold text-white hover:bg-white/15"
+                  className="rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-[#0b1b3a] hover:bg-slate-50"
                   aria-label="Menüyü Aç"
                 >
                   ☰
