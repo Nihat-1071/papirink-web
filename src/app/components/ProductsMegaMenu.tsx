@@ -159,16 +159,6 @@ export default function ProductsMegaMenu({ open, onClose, headerH, menu }: Props
                             <span className={isActive ? "text-white/70" : "text-slate-400"}>→</span>
                           </button>
 
-                          <Link
-                            href={g.href}
-                            onClick={onClose}
-                            className={`
-                              mt-1 block rounded-xl px-4 py-2 text-xs font-semibold transition
-                              ${isActive ? "text-[#0b1b3a] underline underline-offset-4" : "text-slate-500 hover:text-slate-700"}
-                            `}
-                          >
-                            {g.group} sayfasına git
-                          </Link>
                         </div>
                       );
                     })}
@@ -176,7 +166,7 @@ export default function ProductsMegaMenu({ open, onClose, headerH, menu }: Props
 
                   {/* SAĞ */}
                   {active && (
-                    <div className="rounded-3xl border border-slate-200 bg-white p-5">
+                    <div className="rounded-3xl border border-slate-200 bg-white p-5 max-h-[68vh] overflow-auto">
                       <div className="mb-4 flex items-center justify-between">
                         <div>
                           <div className="text-sm font-extrabold text-[#0b1b3a]">{active.group}</div>
