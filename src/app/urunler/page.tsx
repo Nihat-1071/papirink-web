@@ -29,12 +29,12 @@ export const metadata: Metadata = {
 const GROUPS = [
   {
     title: "Makinalar",
-    desc: "Plotter, masaüstü yazıcı, tarayıcı ve katlama çözümleri.",
+    desc: "Plotter, tarayıcı ve katlama çözümleri.",
     href: "/urunler/makinalar/plotter",
     iconKey: "printer",
     items: [
       { label: "Plotter", href: "/urunler/makinalar/plotter" },
-      { label: "Masaüstü Yazıcılar", href: "/urunler/makinalar/masaustu-yazicilar" },
+      { label: "Fotokopi Makinası", href: "/urunler/makinalar/fotokopi-makinasi" },
       { label: "Tarayıcı", href: "/urunler/makinalar/tarayici" },
       { label: "Katlama Makinası", href: "/urunler/makinalar/katlama-makinasi" },
       { label: "UV", href: "/urunler/makinalar/uv" },

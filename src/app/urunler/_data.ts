@@ -8,7 +8,7 @@ export const CATEGORIES: Category[] = [
     desc: "Plotter, masaüstü yazıcı, tarayıcı ve katlama çözümleri.",
     subcategories: [
       { slug: "plotter", title: "Plotter" },
-      { slug: "masaustu-yazicilar", title: "Masaüstü Yazıcılar" },
+      { slug: "fotokopi-makinasi", title: "Fotokopi Makinası" },
       { slug: "tarayici", title: "Tarayıcı" },
       { slug: "katlama-makinasi", title: "Katlama Makinası" },
       { slug: "uv", title: "UV" },

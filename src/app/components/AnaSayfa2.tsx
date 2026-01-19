@@ -1,4 +1,4 @@
-// src/app/components/HomeDeals.tsx
+// src/app/components/AnaSayfa2.tsx
 import Image from "next/image";
 import Link from "next/link";
 
@@ -57,60 +57,10 @@ export default function HomeDeals() {
 
   return (
     <section className="mx-auto w-full max-w-[1400px] px-3 pb-14 sm:px-6">
-      <div className="grid gap-6 lg:grid-cols-[360px_1fr]">
-        {/* SOL PANEL */}
-        <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
-          <div className="relative min-h-[360px] bg-gradient-to-br from-orange-600 via-orange-500 to-amber-500 p-7 text-white">
-            <div className="absolute inset-0 opacity-25">
-              <div className="h-full w-full bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.35),transparent_45%),radial-gradient(circle_at_80%_30%,rgba(255,255,255,0.25),transparent_40%),radial-gradient(circle_at_30%_80%,rgba(0,0,0,0.12),transparent_55%)]" />
-            </div>
-
-            <div className="relative">
-              <div className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-xs font-extrabold">
-                <span className="h-2 w-2 rounded-full bg-white" />
-                Sınırlı Stok / Güncel Fiyat
-              </div>
-
-              <h2 className="mt-4 text-3xl font-extrabold tracking-tight">
-                Fırsat Ürünleri
-              </h2>
-
-              <p className="mt-2 max-w-xs text-sm text-white/90">
-                Kalite–fiyat dengesi yüksek ürünler. Fiyat ve stok için hızlıca
-                teklif al.
-              </p>
-
-              <div className="mt-6 flex flex-col gap-2">
-                <Link
-                  href="/iletisim"
-                  className="inline-flex items-center justify-center rounded-xl bg-white px-4 py-3 text-sm font-extrabold text-slate-900 hover:opacity-95"
-                >
-                  Fiyat Al / Teklif İste →
-                </Link>
-
-                <Link
-                  href="/urunler/kagit"
-                  className="inline-flex items-center justify-center rounded-xl border border-white/30 bg-white/10 px-4 py-3 text-sm font-extrabold hover:bg-white/15"
-                >
-                  Kağıt Kategorisini Aç →
-                </Link>
-              </div>
-            </div>
-          </div>
-
-          <div className="flex items-center justify-center pt-2 pb-6">
-            <Image
-              src="/brand/papirink-logo.webp"
-              alt="Papirink"
-              width={220}
-              height={80}
-              className="h-auto w-auto opacity-90"
-            />
-          </div>
-        </div>
+      <div className="grid gap-6">
 
         {/* SAĞ GRID */}
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {items.map((p) => (
             <div
               key={p.title}

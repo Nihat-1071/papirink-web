@@ -248,7 +248,7 @@ export default function HakkimizdaPage() {
                       Biz kimiz?
                     </h2>
                     <p className="mt-4 max-w-5xl text-base leading-7 text-neutral-700">
-                      Papirink olarak biz, Geniş format ve Masaüstü Yazıcılarının{" "}
+                      Papirink olarak biz, Geniş format ve Fotokopi Makinasıının{" "}
                       tedariki noktasında ülkemizin bu alanda ihtiyac duyduğu
                       kağıt, kartus, mürekkep ve diğer sarf malzemelerini
                       karşılama amacI ile kurulduk. Baskı sektöründeki firmaların

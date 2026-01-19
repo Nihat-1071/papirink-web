@@ -22,7 +22,7 @@ const PRODUCTS_MENU = [
     href: "/urunler/makinalar",
     items: [
       { label: "Plotter", href: "/urunler/makinalar/plotter" },
-      { label: "Masaüstü Yazıcılar", href: "/urunler/makinalar/masaustu-yazicilar" },
+      { label: "Fotokopi Makinası", href: "/urunler/makinalar/fotokopi-makinasi" },
       { label: "Tarayıcı", href: "/urunler/makinalar/tarayici" },
       { label: "Katlama Makinası", href: "/urunler/makinalar/katlama-makinasi" },
       { label: "UV", href: "/urunler/makinalar/uv" },

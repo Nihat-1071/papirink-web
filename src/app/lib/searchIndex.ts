@@ -4,7 +4,7 @@ export const SEARCH_INDEX: SearchItem[] = [
   { title: "Canon TX4200 Plotter", href: "/urunler/makinalar/plotter", keywords: ["tx4200", "canon tx4200", "canon", "plotter"] },
 
   { title: "Plotter", href: "/urunler/makinalar/plotter", keywords: ["plotter", "makina", "makine"] },
-  { title: "Masaüstü Yazıcılar", href: "/urunler/makinalar/masaustu-yazicilar", keywords: ["yazıcı", "printer"] },
+  { title: "Fotokopi Makinası", href: "/urunler/makinalar/fotokopi-makinasi", keywords: ["yazıcı", "printer"] },
   { title: "Tarayıcı", href: "/urunler/makinalar/tarayici", keywords: ["tarayıcı", "scanner"] },
   { title: "Katlama Makinası", href: "/urunler/makinalar/katlama-makinasi", keywords: ["katlama", "proje katlama"] },
 

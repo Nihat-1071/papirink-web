@@ -39,8 +39,8 @@ export const PRODUCTS_INDEX: SearchItem[] = [
     keywords: ["canon", "pro 4000", "plotter", "cizici", "geniş format", "imageprograf"],
   },
   {
-    title: "Masaüstü Yazıcılar",
-    href: "/urunler/makinalar/masaustu-yazicilar",
+    title: "Fotokopi Makinası",
+    href: "/urunler/makinalar/fotokopi-makinasi",
     category: "Makinalar",
     keywords: ["masaustu", "yazici", "printer", "ofis"],
   },

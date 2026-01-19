@@ -353,10 +353,10 @@ export default function BlogPostPlotterGuide() {
                       Plotter
                     </Link>
                     <Link
-                      href="/urunler/makinalar/masaustu-yazicilar"
+                      href="/urunler/makinalar/fotokopi-makinasi"
                       className="rounded-xl border border-neutral-200 bg-white px-4 py-3 text-sm font-medium text-neutral-900 shadow-sm transition hover:shadow"
                     >
-                      Masaüstü Yazıcılar
+                      Fotokopi Makinası
                     </Link>
                     <Link
                       href="/urunler/makinalar/tarayici"

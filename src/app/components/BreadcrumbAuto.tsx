@@ -19,7 +19,7 @@ const LABELS: Record<string, string> = {
   urunler: "Ürünler",
   makinalar: "Makinalar",
   plotter: "Plotter",
-  "masaustu-yazicilar": "Masaüstü Yazıcılar",
+  "fotokopi-makinasi": "Fotokopi Makinası",
   tarayici: "Tarayıcı",
   "katlama-makinasi": "Katlama Makinası",
   uv: "UV",

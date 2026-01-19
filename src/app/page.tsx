@@ -1,9 +1,9 @@
 // app/page.tsx
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import HomeShowcase from "./components/HomeShowcase";
-import HomeDeals from "./components/HomeDeals";
-import FeaturedProducts from "./components/FeaturedProducts";
+import AnaSayfa1 from "./components/AnaSayfa1";
+import AnaSayfa2 from "./components/AnaSayfa2";
+import AnaSayfa3 from "./components/AnaSayfa3";
 import HomeTrust from "./components/HomeTrust";
 import Link from "next/link";
 
@@ -32,9 +32,9 @@ export default function Home() {
   return (
     <>
       <Header />
-      <HomeShowcase />
-      <HomeDeals />
-      <FeaturedProducts />
+      <AnaSayfa1 />
+      <AnaSayfa2 />
+      <AnaSayfa3 />
       <HomeTrust />
 
 

@@ -49,10 +49,10 @@ const CATS = [
   ],
   },
   {
-    id: "masaustu-yazicilar",
-    title: "Masaüstü Yazıcılar",
+    id: "fotokopi-makinasi",
+    title: "Fotokopi Makinası",
     desc: "Tanklı ve foto yazıcı seçenekleri.",
-    href: "/urunler/makinalar/masaustu-yazicilar",
+    href: "/urunler/makinalar/fotokopi-makinasi",
     pills: ["Canon", "Epson", "Tanklı", "A3", "Foto"],
     images: [
       {

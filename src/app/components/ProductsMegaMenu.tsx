@@ -57,7 +57,7 @@ const MEGA_FEATURES: Record<string, Feature> = {
 
 const ITEM_IMAGES: Record<string, string> = {
   Plotter: "/images/urunler/makinalar/plotter/canon-pro-4100-plotter-cizici.jpg",
-  "Masaüstü Yazıcılar": "/images/urunler/makinalar/masaustu-yazici/epson-l850-foto-yazici-tarayici-a4.jpg",
+  "Fotokopi Makinasi": "/images/urunler/makinalar/fotokopi-makinasi/canon-c3926i-fotokopi-makinasi.webp",
   Tarayıcı: "/images/urunler/makinalar/tarayici/graphtec-csx550-1200dpi-a0-tarayici-36-inc.jpg",
   "Katlama Makinası": "/images/urunler/makinalar/katlama-makinasi/foldjet-2000-katlama-makinasi-2-el.jpg",
   UV: "/images/urunler/makinalar/uv/papjet-pj-1-60x90-uv.jpg",
