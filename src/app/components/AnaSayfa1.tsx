@@ -15,6 +15,12 @@ export default function HomeShowcase() {
   const thumbs: ShowcaseThumb[] = useMemo(
     () => [
       {
+        title: "Mürekkep",
+        href: "/urunler/murekkep",
+        imageSrc: "/images/ana-sayfa-ilk-gorseller/plotter-murekkep.webp",
+        imageAlt: "Canon, Epson ve HP uyumlu mürekkepler",
+      },
+      {
         title: "Makinalar",
         href: "/urunler/makinalar",
         imageSrc: "/images/ana-sayfa-ilk-gorseller/makine.webp",
@@ -31,12 +37,6 @@ export default function HomeShowcase() {
         href: "/urunler/kagit",
         imageSrc: "/images/ana-sayfa-ilk-gorseller/kagit.webp",
         imageAlt: "Plotter ve fotoğraf kağıdı çeşitleri",
-      },
-      {
-        title: "Mürekkep",
-        href: "/urunler/murekkep",
-        imageSrc: "/images/ana-sayfa-ilk-gorseller/murekkep.webp",
-        imageAlt: "Canon, Epson ve HP uyumlu mürekkepler",
       },
       {
         title: "UV Baskı",
@@ -102,16 +102,17 @@ export default function HomeShowcase() {
               animation: reduceMotion ? undefined : `hsFade ${duration} ${easing} both`,
             }}
           >
-            <Image
-              src={active.imageSrc}
-              alt={active.imageAlt}
-              fill
-              priority
-              className="object-contain"
-            />
+          <Image
+            src={active.imageSrc}
+            alt={active.imageAlt}
+            fill
+            priority
+            quality={100}
+            unoptimized
+            className="object-cover"
+          />
 
-            <div className="absolute inset-0 bg-gradient-to-r from-black/25 via-transparent to-black/15" />
-            <div className="absolute inset-0 [box-shadow:inset_0_0_140px_rgba(0,0,0,0.20)]" />
+
 
             <div className="absolute left-6 bottom-6">
               <div className="inline-flex items-center gap-2 rounded-2xl bg-white/85 px-4 py-2 text-sm font-extrabold text-slate-900 shadow-sm backdrop-blur">
@@ -157,12 +158,14 @@ export default function HomeShowcase() {
                   ].join(" ")}
                 >
                   <div className="relative aspect-[16/10] overflow-hidden rounded-xl">
-                    <Image
-                      src={t.imageSrc}
-                      alt={t.imageAlt}
-                      fill
-                      className="object-contain transition-transform duration-300 group-hover:scale-[1.02]"
-                    />
+                  <Image
+                    src={t.imageSrc}
+                    alt={t.imageAlt}
+                    fill
+                    quality={95}
+                    unoptimized
+                    className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+/>
                   </div>
                   <div className="mt-2 text-center text-xs font-extrabold text-slate-800">
                     {t.title}
