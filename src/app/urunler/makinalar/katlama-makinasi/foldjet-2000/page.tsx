@@ -2,46 +2,74 @@ import type { Metadata } from "next";
 import Header from "../../../../components/Header";
 import Footer from "../../../../components/Footer";
 import Breadcrumb from "../../../../components/Breadcrumb";
-import ProductHeroClient from "./ProductHeroClient";
 import BreadcrumbAuto from "../../../../components/BreadcrumbAuto";
+import ProductHeroClient from "./ProductHeroClient";
 
 export const dynamic = "error";
 
 const baseUrl = "https://www.papirink.com.tr";
-const pagePath = "/urunler/makinalar/plotter/canon-pro-4000";
+const pagePath = "/urunler/makinalar/katlama-makinasi/foldjet-2000";
 
 export const metadata: Metadata = {
-  title: "Canon PRO-4000 Plotter | Papirink",
+  title: "Foldjet 2000 Katlama Makinası | Papirink",
   description:
-    "Canon PRO-4000 plotter: büyük format baskı, grafik ve teknik çizim çıktıları için profesyonel çözüm. Teklif ve tedarik için iletişime geçin.",
+    "Foldjet 2000 katlama makinası: 920 mm’e kadar genişlik, DIN katlama A3’ten A0’a, yaklaşık 12 m/dk katlama hızı ve 1 mm ayar hassasiyeti ile plan/proje katlama çözümü.",
   alternates: { canonical: `${baseUrl}${pagePath}` },
 };
 
 const product = {
-  title: "Canon Pro 4000 Plotter Çizici",
-  brand: "Canon",
-  category: "Plotter Makinası",
-  image: "/images/urunler/makinalar/plotter/canon-pro-4000-plotter-cizici.jpg",
+  title: "Foldjet 2000 Katlama Makinası",
+  brand: "Foldjet",
+  category: "Katlama Makinası",
+  image:
+    "/images/urunler/makinalar/katlama-makinasi/foldjet-2000-katlama-makinasi.jpg",
 
-  description:
-    "Canon Pro 4000; büyük format baskı, grafik ve teknik çizim çıktıları için profesyonel bir çözümdür. Uygun konfigürasyon, sarf seçimi ve bilgi için ekibimizle iletişime geçebilirsiniz.",
+  description: `Foldjet 2000 katlama makinası; plotter çıktıları, diazo, PPC ve teknik çizim/plan gibi dokümanların hızlı ve düzenli şekilde katlanması için tasarlanmış profesyonel bir çözümdür.
+
+920 mm’e kadar doküman genişliğini destekler ve DIN katlama modunda A3’ten A0’a kadar ciltli/ciltsiz kenar seçenekleri sunar. Yaklaşık 12 metre/dakika katlama hızı ve 1 mm aralıklarla ayarlanabilen katlama seçenekleri ile yoğun ofis ortamlarında verimliliği artırır.
+
+Katlama, paket katlama ve serbest format gibi farklı senaryolara uyum sağlar; mm/inç birim desteği ve çoklu dil seçenekleri ile kullanım kolaylığı sunar.`,
 
   specs: [
-    { k: "Yazıcı Türü", v: "12 renkli, 44 inç / 1118 mm" },
-    { k: "Baskı Çözünürlüğü", v: "2400 x 1200 dpi" },
-    { k: "Mürekkep", v: "Pigment mürekkep sistemi (çoklu renk)" },
-    { k: "Bağlantı", v: "USB / Ethernet / Kablosuz (modele göre)" },
-    { k: "Kullanım", v: "CAD çizimler, poster, grafik ve fotoğraf baskı" },
+    { k: "Katlama Materyali", v: "Maks. genişlik: 920 mm • Maks. uzunluk: 30 m" },
+    {
+      k: "Materyal",
+      v: "Opak kağıt 70–110 g/m • E boyutu (20lb bond) (örn: diazo, ppc ve plotter kağıdı)",
+    },
+    {
+      k: "Katlama Uzunluğu",
+      v: "DIN katlama: A3’ten A0’a (ciltli/ciltsiz kenar)",
+    },
+    {
+      k: "Paket Katlama (190/210)",
+      v: "95’ten 330/350 mm’ye (4–13/14 inç)",
+    },
+    { k: "Serbest Format (190)", v: "95’ten 330 mm’ye (ciltli/ciltsiz)" },
+    { k: "Serbest Format (210)", v: "95’ten 330 mm’ye (ciltli/ciltsiz)" },
+    { k: "Kenar Ciltlemesi", v: "10 mm’den 50 mm’ye kadar" },
+    { k: "Katlama Hızı", v: "Yaklaşık 12 metre/dakika" },
+    { k: "Ayarlar", v: "Tüm katlamalar 1 mm aralıklarla ayarlanabilir" },
+    {
+      k: "Ekran Dilleri",
+      v: "Almanca, İngilizce, Fransızca, İtalyanca, Hollandaca, İsveççe",
+    },
+    { k: "Uzunluk Ölçüleri", v: "mm veya inç" },
+    {
+      k: "Ölçüler",
+      v: "Genişlik: 1128 mm • Uzunluk (masayla): 1395 mm • Masa kapalıyken: 715 mm",
+    },
+    { k: "Yükseklik", v: "Toplam: 1030 mm • Çalışma yüksekliği: 910 mm" },
+    { k: "Ağırlık", v: "168 kg" },
+    { k: "Güç", v: "230 V" },
   ],
 };
-
 
 export default function Page() {
   const breadcrumbItems = [
     { label: "Ana Sayfa", href: "/" },
     { label: "Ürünler", href: "/urunler" },
     { label: "Makinalar", href: "/urunler/makinalar" },
-    { label: "Plotter", href: "/urunler/makinalar/plotter" },
+    { label: "Katlama Makinası", href: "/urunler/makinalar/katlama-makinasi" },
     { label: product.title, href: pagePath },
   ];
 
@@ -49,14 +77,12 @@ export default function Page() {
     <>
       <Header />
       <BreadcrumbAuto className="mx-auto w-full max-w-6xl px-4 pt-4" />
-      
+
       <main className="min-h-screen bg-[#f5f7fb]">
-        {/* Breadcrumb */}
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
           <Breadcrumb items={breadcrumbItems} />
         </section>
 
-        {/* Ürün üst alan (kurumsal hero) */}
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <ProductHeroClient
             title={product.title}
@@ -65,11 +91,10 @@ export default function Page() {
             image={product.image}
           />
 
-          {/* İçerik kartları */}
           <div className="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {/* Açıklama */}
+            {/* Ürün Açıklaması */}
             <section className="lg:col-span-2 rounded-2xl border border-slate-200 bg-white shadow-sm overflow-hidden">
-              <div className="flex items-center gap-3 border-b border-slate-200 px-6 py-4 bg-white">
+              <div className="flex items-center gap-3 border-b border-slate-200 px-6 py-4">
                 <div className="h-10 w-1 rounded-full bg-[#dc2626]" />
                 <h2 className="text-xl font-extrabold text-slate-900">
                   Ürün Açıklaması
@@ -95,9 +120,7 @@ export default function Page() {
                 <dl className="space-y-3">
                   {product.specs.map((s) => (
                     <div key={s.k} className="grid grid-cols-3 gap-3">
-                      <dt className="col-span-1 text-xs font-bold text-slate-500">
-                        {s.k}
-                      </dt>
+                      <dt className="text-xs font-bold text-slate-500">{s.k}</dt>
                       <dd className="col-span-2 text-sm font-semibold text-slate-900">
                         {s.v}
                       </dd>

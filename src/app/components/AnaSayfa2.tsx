@@ -12,100 +12,117 @@ type DealItem = {
 
 export default function HomeDeals() {
   const items: DealItem[] = [
+    // ✅ MAKİNALAR (6 kart)
     {
-      title: "Mat Coated Kağıtları",
-      href: "/urunler/kagit/mat-coated-kagitlari",
-      imageSrc:
-        "/images/urunler/kagit/mat-coated-kagitlari/mat-coated-kagidi.webp",
-      imageAlt: "Mat coated kağıdı rulo",
+      title: "Plotter",
+      href: "/urunler/makinalar/plotter",
+      imageSrc: "/images/ana-sayfa-ilk-gorseller/plotter-modelleri-teknik-servis-papirink.webp", // sen güncellersin
+      imageAlt: "Plotter yazıcı ve çizici çözümleri",
       badge: "Popüler",
     },
     {
-      title: "Plotter Kağıtları",
-      href: "/urunler/kagit/plotter-kagitlari",
-      imageSrc: "/images/urunler/kagit/plotter-kagit/plotter-kagidi.webp",
-      imageAlt: "Plotter kağıdı rulo",
-      badge: "Fırsat",
+      title: "Fotokopi Makinası",
+      href: "/urunler/makinalar/fotokopi-makinasi",
+      imageSrc: "/images/ana-sayfa-ilk-gorseller/makine.webp", // sen güncellersin
+      imageAlt: "Fotokopi makinası modelleri",
+      badge: "Popüler",
     },
     {
-      title: "Fotoğraf Kağıtları",
-      href: "/urunler/kagit/fotograf-kagitlari",
-      imageSrc: "/images/urunler/kagit/fotograf-kagitlari/fotograf-kagidi.webp",
-      imageAlt: "Fotoğraf kağıdı çeşitleri",
+      title: "Katlama Makinası",
+      href: "/urunler/makinalar/katlama-makinasi",
+      imageSrc: "/images/ana-sayfa-ilk-gorseller/makine.webp", // sen güncellersin
+      imageAlt: "Katlama makinası çözümleri",
+      badge: "Popüler",
     },
     {
-      title: "Pamuklu Kanvas (Cotton)",
-      href: "/urunler/kagit/pamuklu-kanvas-cotton",
-      imageSrc: "/images/urunler/kagit/pamuklu-kanvas-cotton/cotton-kanvas.webp",
-      imageAlt: "Pamuklu kanvas rulo",
-      badge: "Yeni",
+      title: "Tarayıcı",
+      href: "/urunler/makinalar/tarayici",
+      imageSrc: "/images/ana-sayfa-ilk-gorseller/makine.webp", // sen güncellersin
+      imageAlt: "A0/A1 tarayıcı (scanner) çözümleri",
+      badge: "Popüler",
     },
     {
-      title: "Polyester Kanvas",
-      href: "/urunler/kagit/polyester-kanvas",
-      imageSrc: "/images/urunler/kagit/polyester-kanvas/polyester-kanvas.webp",
-      imageAlt: "Polyester kanvas rulo",
+      title: "UV",
+      href: "/urunler/makinalar/uv",
+      imageSrc: "/images/ana-sayfa-ilk-gorseller/makine.webp", // sen güncellersin
+      imageAlt: "UV baskı makinası çözümleri",
+      badge: "Popüler",
     },
     {
-      title: "Yapışkanlı Kağıtlar",
-      href: "/urunler/kagit/yapiskanli-kagitlar",
-      imageSrc:
-        "/images/urunler/kagit/yapiskanli-kagitlar/mat-yapiskanli-kagit.webp",
-      imageAlt: "Yapışkanlı kağıt mat",
+      title: "Etiket Makinaları",
+      href: "/urunler/makinalar/etiket-makinalari",
+      imageSrc: "/images/ana-sayfa-ilk-gorseller/makine.webp", // sen güncellersin
+      imageAlt: "Etiket baskı makinası çözümleri",
+      badge: "Popüler",
+    },
+
+    // ✅ MÜREKKEP (2 kart)
+    {
+      title: "HP Uyumlu Mürekkep",
+      href: "/urunler/murekkep/hp-uyumlu-murekkep",
+      imageSrc: "/images/ana-sayfa-ilk-gorseller/plotter-murekkep.webp", // sen güncellersin
+      imageAlt: "HP uyumlu mürekkep seçenekleri",
+      badge: "Popüler",
+    },
+    {
+      title: "Epson Uyumlu Mürekkep",
+      href: "/urunler/murekkep/epson-uyumlu-murekkep",
+      imageSrc: "/images/ana-sayfa-ilk-gorseller/plotter-murekkep.webp", // sen güncellersin
+      imageAlt: "Epson uyumlu mürekkep seçenekleri",
+      badge: "Popüler",
     },
   ];
 
-return (
-  <section className="w-full pb-14">
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div className="grid gap-6">
-        {/* SAĞ GRID */}
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {items.map((p) => (
-            <div
-              key={p.title}
-              className="group flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
-            >
-              <Link href={p.href} className="block">
-                <div className="relative aspect-[16/10] bg-slate-100">
-                  <Image
-                    src={p.imageSrc}
-                    alt={p.imageAlt}
-                    fill
-                    className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
-                  />
-                  {p.badge && (
-                    <div className="absolute left-3 top-3 rounded-full bg-slate-900/80 px-3 py-1 text-xs font-extrabold text-white backdrop-blur">
-                      {p.badge}
-                    </div>
-                  )}
-                </div>
+  return (
+    <section className="w-full pb-14">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid gap-6">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {items.map((p) => (
+              <div
+                key={p.title}
+                className="group flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+              >
+                <Link href={p.href} className="block">
+                  <div className="relative aspect-[16/10] bg-slate-100">
+                    <Image
+                      src={p.imageSrc}
+                      alt={p.imageAlt}
+                      fill
+                      className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+                    />
 
-                <div className="p-4">
-                  <h3 className="line-clamp-2 text-sm font-extrabold text-slate-900">
-                    {p.title}
-                  </h3>
+                    {p.badge && (
+                      <div className="absolute left-3 top-3 rounded-full bg-orange-200 px-3 py-1 text-xs font-extrabold text-orange-950">
+                        {p.badge}
+                      </div>
+                    )}
+                  </div>
 
-                  <p className="mt-3 text-xs text-slate-500">
-                    Aynı gün dönüş • WhatsApp / Telefon
-                  </p>
-                </div>
-              </Link>
+                  <div className="p-4">
+                    <h3 className="line-clamp-2 text-sm font-extrabold text-slate-900">
+                      {p.title}
+                    </h3>
 
-              <div className="mt-auto px-4 pb-4">
-                <Link
-                  href="/iletisim"
-                  className="inline-flex w-full items-center justify-center rounded-xl bg-slate-900 px-4 py-2.5 text-sm font-extrabold text-white hover:opacity-90"
-                >
-                  Fiyat Alınız →
+                    <p className="mt-3 text-xs text-slate-500">
+                      Aynı gün dönüş • WhatsApp / Telefon
+                    </p>
+                  </div>
                 </Link>
+
+                <div className="mt-auto px-4 pb-4">
+                  <Link
+                    href="/iletisim"
+                    className="inline-flex w-full items-center justify-center rounded-xl bg-orange-200 px-4 py-2.5 text-sm font-extrabold text-orange-950 transition hover:brightness-95"
+                  >
+                    Fiyat Alınız →
+                  </Link>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-);
-
+    </section>
+  );
 }

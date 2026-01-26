@@ -2,39 +2,56 @@ import type { Metadata } from "next";
 import Header from "../../../../components/Header";
 import Footer from "../../../../components/Footer";
 import Breadcrumb from "../../../../components/Breadcrumb";
-import ProductHeroClient from "./ProductHeroClient";
 import BreadcrumbAuto from "../../../../components/BreadcrumbAuto";
+import ProductHeroClient from "./ProductHeroClient";
 
 export const dynamic = "error";
 
 const baseUrl = "https://www.papirink.com.tr";
-const pagePath = "/urunler/makinalar/plotter/canon-pro-4000";
+const pagePath = "/urunler/makinalar/plotter/hp-designjet-t930";
 
 export const metadata: Metadata = {
-  title: "Canon PRO-4000 Plotter | Papirink",
+  title: "HP DesignJet T930 Plotter Çizici | Papirink",
   description:
-    "Canon PRO-4000 plotter: büyük format baskı, grafik ve teknik çizim çıktıları için profesyonel çözüm. Teklif ve tedarik için iletişime geçin.",
+    "HP DesignJet T930 36 inç plotter: Profesyonel CAD ve GIS uygulamaları için 6 mürekkepli, yüksek hızlı, güvenli ve mobil uyumlu geniş format yazıcı.",
   alternates: { canonical: `${baseUrl}${pagePath}` },
 };
 
 const product = {
-  title: "Canon Pro 4000 Plotter Çizici",
-  brand: "Canon",
+  title: "HP DesignJet T930 Plotter Çizici",
+  brand: "HP",
   category: "Plotter Makinası",
-  image: "/images/urunler/makinalar/plotter/canon-pro-4000-plotter-cizici.jpg",
+  image:
+    "/images/urunler/makinalar/plotter/hp-designjet-t930-plotter-cizici.jpg",
 
-  description:
-    "Canon Pro 4000; büyük format baskı, grafik ve teknik çizim çıktıları için profesyonel bir çözümdür. Uygun konfigürasyon, sarf seçimi ve bilgi için ekibimizle iletişime geçebilirsiniz.",
+  description: `HP DesignJet T930 Yazıcı Serisi; profesyonel kalitede CAD ve GIS uygulamaları için tasarlanmış, 914 mm (36 inç) baskı genişliğine sahip gelişmiş bir plotter çözümüdür.
+
+50 sayfalık tümleşik istifleme tepsisi ve gerçek önden rulo yükleme sistemi sayesinde yoğun ofis ve proje ortamlarında kesintisiz çalışma imkânı sunar. 6 mürekkepli sistem ile teknik çizimlerde netlik ve renk doğruluğu sağlar.
+
+Gelişmiş güvenlik protokolleri, yüksek işlem gücü ve HP Mobil Baskı desteği sayesinde iOS ve Android cihazlardan kolay baskı alınabilir.`,
 
   specs: [
-    { k: "Yazıcı Türü", v: "12 renkli, 44 inç / 1118 mm" },
-    { k: "Baskı Çözünürlüğü", v: "2400 x 1200 dpi" },
-    { k: "Mürekkep", v: "Pigment mürekkep sistemi (çoklu renk)" },
-    { k: "Bağlantı", v: "USB / Ethernet / Kablosuz (modele göre)" },
-    { k: "Kullanım", v: "CAD çizimler, poster, grafik ve fotoğraf baskı" },
+    { k: "Seri", v: "HP DesignJet T930" },
+    { k: "Maks. Baskı Genişliği", v: "914 mm (36 inç)" },
+    { k: "Kullanım", v: "CAD ve GIS uygulamaları" },
+    { k: "Mürekkep Sistemi", v: "6 adet Orijinal HP mürekkep (300 ml’ye kadar)" },
+    { k: "Baskı Hızı", v: "21 saniyede D/A1 baskı" },
+    { k: "Çözünürlük", v: "E/A0 boyutuna kadar destek" },
+    { k: "Bellek", v: "64 GB sanal bellek (paralel dosya işleme)" },
+    {
+      k: "Güvenlik",
+      v: "IPSec, 802.1x, SNMPv3, PIN ile baskı",
+    },
+    {
+      k: "Medya Yükleme",
+      v: "Gerçek önden rulo yükleme, 50 sayfalık istifleme tepsisi",
+    },
+    {
+      k: "Mobil Baskı",
+      v: "HP Mobil Baskı – iOS ve Android uyumlu",
+    },
   ],
 };
-
 
 export default function Page() {
   const breadcrumbItems = [
@@ -49,14 +66,12 @@ export default function Page() {
     <>
       <Header />
       <BreadcrumbAuto className="mx-auto w-full max-w-6xl px-4 pt-4" />
-      
+
       <main className="min-h-screen bg-[#f5f7fb]">
-        {/* Breadcrumb */}
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
           <Breadcrumb items={breadcrumbItems} />
         </section>
 
-        {/* Ürün üst alan (kurumsal hero) */}
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <ProductHeroClient
             title={product.title}
@@ -65,11 +80,10 @@ export default function Page() {
             image={product.image}
           />
 
-          {/* İçerik kartları */}
           <div className="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {/* Açıklama */}
+            {/* Ürün Açıklaması */}
             <section className="lg:col-span-2 rounded-2xl border border-slate-200 bg-white shadow-sm overflow-hidden">
-              <div className="flex items-center gap-3 border-b border-slate-200 px-6 py-4 bg-white">
+              <div className="flex items-center gap-3 border-b border-slate-200 px-6 py-4">
                 <div className="h-10 w-1 rounded-full bg-[#dc2626]" />
                 <h2 className="text-xl font-extrabold text-slate-900">
                   Ürün Açıklaması
@@ -95,7 +109,7 @@ export default function Page() {
                 <dl className="space-y-3">
                   {product.specs.map((s) => (
                     <div key={s.k} className="grid grid-cols-3 gap-3">
-                      <dt className="col-span-1 text-xs font-bold text-slate-500">
+                      <dt className="text-xs font-bold text-slate-500">
                         {s.k}
                       </dt>
                       <dd className="col-span-2 text-sm font-semibold text-slate-900">

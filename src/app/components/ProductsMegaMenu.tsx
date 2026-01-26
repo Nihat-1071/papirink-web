@@ -56,13 +56,87 @@ const MEGA_FEATURES: Record<string, Feature> = {
 };
 
 const ITEM_IMAGES: Record<string, string> = {
+  // Makinalar
   Plotter: "/images/urunler/makinalar/plotter/canon-pro-4100-plotter-cizici.jpg",
-  "Fotokopi Makinasi": "/images/urunler/makinalar/fotokopi-makinasi/canon-c3926i-fotokopi-makinasi.webp",
-  Tarayıcı: "/images/urunler/makinalar/tarayici/graphtec-csx550-1200dpi-a0-tarayici-36-inc.jpg",
-  "Katlama Makinası": "/images/urunler/makinalar/katlama-makinasi/foldjet-2000-katlama-makinasi-2-el.jpg",
-  UV: "/images/urunler/makinalar/uv/papjet-pj-1-60x90-uv.jpg",
-  "Etiket Makinaları": "/images/mega/items/etiket-makinalari.webp",
+
+  "Fotokopi Makinası":
+    "/images/urunler/makinalar/fotokopi-makinasi/canon-c3926i-fotokopi-makinasi.webp",
+
+  Tarayıcı:
+    "/images/urunler/makinalar/tarayici/graphtec-csx550-1200dpi-a0-tarayici-36-inc.jpg",
+
+  "Katlama Makinası":
+    "/images/urunler/makinalar/katlama-makinasi/foldjet-2000-katlama-makinasi-2-el.jpg",
+
+  UV:
+    "/images/urunler/makinalar/uv/papjet-pj-1-60x90-uv.jpg",
+
+  "Etiket Makinaları":
+    "/images/urunler/makinalar/etiket-makinalari/papjet-pj33x48-etiket-makinasi.jpg",
+
+  // Kartuşlar
+  "HP Orijinal Kartuş": "/images/urunler/kartus/hp-orjinal-kartus/hp-70-c9390a-acik-mavi-orjinal-kartus.jpg",
+  "Canon Orijinal Kartuş": "/images/urunler/kartus/canon-orijinal-kartus/canon-pfi-102bk-parlak-siyah-kartus-ipf500-ipf600.jpg",
+  "Epson Orijinal Kartuş": "/images/urunler/kartus/epson-orijinal-kartus/epson-t7141-siyah-orijinal-kartus-surecolor-s70610.jpg",
+  "Papirink Muadil Kartuş": "/images/urunler/kartus/papirink-muadil-kartus/hp-761-muadil-kartus-siyah-black.png",
+
+  // Kağıt kategorileri
+  "Aydınger": "/images/urunler/kagit/aydinger/aydingeri-kagit-toplu-satis.webp",
+  "Bayrak & Bez": "/images/urunler/kagit/bayrak-bezi-takvim-bezi/bayrak-takvim-kirlangic-bezi.png",
+  "Fosforlu Kağıtlar": "/images/urunler/kagit/fosforlu-kagitlar/fosforlu-sari-kagit.webp",
+  "Fotoğraf Kağıtları": "/images/urunler/kagit/fotograf-kagitlari/fotograf-kagidi.webp",
+  "Mat Coated Kağıtları": "/images/urunler/kagit/mat-coated-kagitlari/mat-coated-kagidi.webp",
+  "Pamuklu Kanvas (Cotton)": "/images/urunler/kagit/pamuklu-kanvas-cotton/cotton-kanvas.webp",
+  "Plotter Kağıtları": "/images/urunler/kagit/plotter-kagit/plotter-kagidi.webp",
+  "Polyester": "/images/urunler/kagit/polyester/plotter-polyesteri.webp",
+  "Polyester Kanvas": "/images/urunler/kagit/polyester-kanvas/polyester-kanvas.webp",
+  "Yapışkanlı Kağıtlar": "/images/urunler/kagit/yapiskanli-kagitlar/mat-yapiskanli-kagit.webp",
+
+    // Bitmeyen Kartuş
+  "Canon için Dolan Kartuş":
+    "/images/urunler/bitmeyen-kartus/canon-icin-dolan-kartus/canon-icin-uyumlu-kolay-dolan-kartus.webp",
+
+  "Epson için Dolan Kartuş":
+    "/images/urunler/bitmeyen-kartus/epson-icin-dolan-kartus/epson-4900-uyumlu-kolay-dolan-kartus-11-renk.webp",
+
+  "HP için Dolan Kartuş":
+    "/images/urunler/bitmeyen-kartus/hp-icin-dolan-kartus/hp-10-82-uyumlu-kolay-dolan-kartus-4-renk.webp",
+
+    // Mürekkep
+  "Canon Uyumlu Mürekkep":
+    "/images/urunler/murekkep/canon-uyumlu-murekkep/canon-cyan-a4-masaustu-yazici-serisi-murekkep.webp",
+
+  "Canon Plotter Mürekkebi":
+    "/images/urunler/murekkep/canon-uyumlu-murekkep/papirink-cyan-canon-uyumlu-plotter-murekkebi-1000-gr-dye.webp",
+
+  "Epson Uyumlu Mürekkep":
+    "/images/urunler/murekkep/epson-uyumlu-murekkep/epson-cyan-masaustu-yazici-murekkebi-500-gr.webp",
+
+  "Epson Plotter Mürekkebi":
+    "/images/urunler/murekkep/epson-uyumlu-murekkep/papirink-epson-hdr-uyumlu-plotter-murekkebi-500-gr.webp",
+
+  "HP Uyumlu Mürekkep":
+    "/images/urunler/murekkep/hp-uyumlu-murekkep/papirink-cyan-hp-pagewide-a4-yazici-serisi-murekkep.webp",
+
+    // Sarf Malzemeleri
+  "Bakım Kiti / Kartuşu":
+    "/images/urunler/sarf-malzemeleri/bakim-kiti-kartusu/epson-t3200-t5200-t7200-uyumlu-atik-tank-kutusu.webp",
+
+  "Baskı Kafası":
+    "/images/urunler/sarf-malzemeleri/baski-kafasi/hp-70-c9408a-mavi-ve-yesil-baski-kafasi.webp",
+
+  "Çipler":
+    "/images/urunler/sarf-malzemeleri/cipler/epson-cip.webp",
+
+  "Drum & Bıçak":
+    "/images/urunler/sarf-malzemeleri/drum-bicak/oce-uyumlu-drum.webp",
+
+  "Toner":
+    "/images/urunler/sarf-malzemeleri/toner/oce-plotwave-muadil-toner.webp",
+
 };
+
+
 export default function ProductsMegaMenu({ open, onClose, headerH, menu }: Props) {
   const [activeGroup, setActiveGroup] = useState(menu[0]?.group ?? "Makinalar");
 

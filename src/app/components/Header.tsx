@@ -336,22 +336,22 @@ export default function Header() {
 
                 <Link
                   href="/blog"
-className={`text-sm font-semibold transition ${
-  pathname.startsWith("/blog")
-    ? "text-[#0b1b3a] border-b-2 border-cyan-600 pb-1"
-    : "text-slate-700 hover:text-[#0b1b3a]"
-}`}
+                  className={`text-sm font-semibold transition ${
+                    pathname.startsWith("/blog")
+                      ? "text-[#0b1b3a] border-b-2 border-cyan-600 pb-1"
+                      : "text-slate-700 hover:text-[#0b1b3a]"
+                  }`}
                 >
                   Blog
                 </Link>
 
                 <Link
                   href="/iletisim"
-className={`text-sm font-semibold transition ${
-  pathname === "/iletisim"
-    ? "text-[#0b1b3a] border-b-2 border-cyan-600 pb-1"
-    : "text-slate-700 hover:text-[#0b1b3a]"
-}`}
+                  className={`text-sm font-semibold transition ${
+                    pathname === "/iletisim"
+                      ? "text-[#0b1b3a] border-b-2 border-cyan-600 pb-1"
+                      : "text-slate-700 hover:text-[#0b1b3a]"
+                  }`}
                 >
                   İletişim
                 </Link>

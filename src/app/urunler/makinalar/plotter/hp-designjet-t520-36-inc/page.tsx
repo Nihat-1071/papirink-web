@@ -2,39 +2,45 @@ import type { Metadata } from "next";
 import Header from "../../../../components/Header";
 import Footer from "../../../../components/Footer";
 import Breadcrumb from "../../../../components/Breadcrumb";
-import ProductHeroClient from "./ProductHeroClient";
 import BreadcrumbAuto from "../../../../components/BreadcrumbAuto";
+import ProductHeroClient from "./ProductHeroClient";
 
 export const dynamic = "error";
 
 const baseUrl = "https://www.papirink.com.tr";
-const pagePath = "/urunler/makinalar/plotter/canon-pro-4000";
+const pagePath = "/urunler/makinalar/plotter/hp-designjet-t520-36-inc";
 
 export const metadata: Metadata = {
-  title: "Canon PRO-4000 Plotter | Papirink",
+  title: "HP DesignJet T520 36 inç Plotter | Papirink",
   description:
-    "Canon PRO-4000 plotter: büyük format baskı, grafik ve teknik çizim çıktıları için profesyonel çözüm. Teklif ve tedarik için iletişime geçin.",
+    "HP DesignJet T520 36 inç (914 mm) Wi-Fi plotter: CAD ve genel amaçlı baskılar için pratik 4,3 inç dokunmatik ekran, önden yüklemeli rulo ve hızlı D/A1 çıktı.",
   alternates: { canonical: `${baseUrl}${pagePath}` },
 };
 
 const product = {
-  title: "Canon Pro 4000 Plotter Çizici",
-  brand: "Canon",
+  title: "HP DesignJet T520 36 inç Plotter Çizici",
+  brand: "HP",
   category: "Plotter Makinası",
-  image: "/images/urunler/makinalar/plotter/canon-pro-4000-plotter-cizici.jpg",
+  image:
+    "/images/urunler/makinalar/plotter/hp-designjet-t520-36-inc-plotter-cizici.jpg",
 
-  description:
-    "Canon Pro 4000; büyük format baskı, grafik ve teknik çizim çıktıları için profesyonel bir çözümdür. Uygun konfigürasyon, sarf seçimi ve bilgi için ekibimizle iletişime geçebilirsiniz.",
+  description: `HP DesignJet T520 Yazıcı Serisi; CAD uygulamaları ve genel amaçlı işler için 610 mm (24 inç) veya 914 mm (36 inç) seçenekleri bulunan Wi-Fi özellikli bir plotter çözümüdür.
+
+Önden yüklemeli baskı malzemesi rulosu, dahili B+/A3 tepsisi ve pratik 4,3 inç (109 mm) renkli dokunmatik ekranıyla günlük çizim ve proje çıktılarında kullanım kolaylığı sağlar. Akıllı telefon veya tabletten kolay baskı desteği ile ofis içi üretkenliği artırır.`,
 
   specs: [
-    { k: "Yazıcı Türü", v: "12 renkli, 44 inç / 1118 mm" },
-    { k: "Baskı Çözünürlüğü", v: "2400 x 1200 dpi" },
-    { k: "Mürekkep", v: "Pigment mürekkep sistemi (çoklu renk)" },
-    { k: "Bağlantı", v: "USB / Ethernet / Kablosuz (modele göre)" },
-    { k: "Kullanım", v: "CAD çizimler, poster, grafik ve fotoğraf baskı" },
+    { k: "Seri", v: "HP DesignJet T520" },
+    { k: "Maks. Baskı Genişliği", v: "914 mm (36 inç)" },
+    { k: "Kullanım", v: "CAD ve genel amaçlı baskılar" },
+    { k: "Bağlantı", v: "Kablosuz (Wi-Fi)" },
+    { k: "Tepsi", v: "Dahili B+/A3 tepsisi" },
+    { k: "Medya Yükleme", v: "Önden yüklemeli baskı malzemesi rulosu" },
+    { k: "Ekran", v: "4,3 inç (109 mm) renkli dokunmatik ekran" },
+    { k: "Hız", v: "35 saniyede D/A1 boyutunda baskı" },
+    { k: "Sarf", v: "4 adet orijinal HP mürekkebi • uzun ömürlü baskı kafası" },
+    { k: "Mobil Baskı", v: "Akıllı telefon/tabletten kolay baskı" },
   ],
 };
-
 
 export default function Page() {
   const breadcrumbItems = [
@@ -49,14 +55,12 @@ export default function Page() {
     <>
       <Header />
       <BreadcrumbAuto className="mx-auto w-full max-w-6xl px-4 pt-4" />
-      
+
       <main className="min-h-screen bg-[#f5f7fb]">
-        {/* Breadcrumb */}
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
           <Breadcrumb items={breadcrumbItems} />
         </section>
 
-        {/* Ürün üst alan (kurumsal hero) */}
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <ProductHeroClient
             title={product.title}
@@ -65,11 +69,10 @@ export default function Page() {
             image={product.image}
           />
 
-          {/* İçerik kartları */}
           <div className="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {/* Açıklama */}
+            {/* Ürün Açıklaması */}
             <section className="lg:col-span-2 rounded-2xl border border-slate-200 bg-white shadow-sm overflow-hidden">
-              <div className="flex items-center gap-3 border-b border-slate-200 px-6 py-4 bg-white">
+              <div className="flex items-center gap-3 border-b border-slate-200 px-6 py-4">
                 <div className="h-10 w-1 rounded-full bg-[#dc2626]" />
                 <h2 className="text-xl font-extrabold text-slate-900">
                   Ürün Açıklaması
@@ -95,7 +98,7 @@ export default function Page() {
                 <dl className="space-y-3">
                   {product.specs.map((s) => (
                     <div key={s.k} className="grid grid-cols-3 gap-3">
-                      <dt className="col-span-1 text-xs font-bold text-slate-500">
+                      <dt className="text-xs font-bold text-slate-500">
                         {s.k}
                       </dt>
                       <dd className="col-span-2 text-sm font-semibold text-slate-900">
