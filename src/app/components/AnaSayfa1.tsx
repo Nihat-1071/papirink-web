@@ -23,13 +23,13 @@ export default function HomeShowcase() {
       {
         title: "Makinalar",
         href: "/urunler/makinalar",
-        imageSrc: "/images/ana-sayfa-ilk-gorseller/makine.webp",
+        imageSrc: "/images/ana-sayfa-ilk-gorseller/plotter-modelleri-teknik-servis-papirink.webp",
         imageAlt: "Plotter, yazıcı ve baskı makinaları",
       },
       {
         title: "Yazıcı & Plotter",
         href: "/urunler/makinalar/plotter",
-        imageSrc: "/images/ana-sayfa-ilk-gorseller/yazici.webp",
+        imageSrc: "/images/ana-sayfa-ilk-gorseller/plotter-modelleri-doldurulabilir-kartus-sistemi-papirink.webp",
         imageAlt: "Geniş format yazıcı ve plotter çözümleri",
       },
       {
@@ -87,8 +87,9 @@ export default function HomeShowcase() {
   const duration = reduceMotion ? "160ms" : "420ms";
 
   return (
-    <section className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] pb-20">
-      <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
+    <section className="w-full pb-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
+
         {/* Büyük Görsel */}
         <div
           className="relative aspect-[1920/700] bg-slate-100 overflow-hidden"

@@ -55,10 +55,10 @@ export default function HomeDeals() {
     },
   ];
 
-  return (
-    <section className="mx-auto w-full max-w-[1400px] px-3 pb-14 sm:px-6">
+return (
+  <section className="w-full pb-14">
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div className="grid gap-6">
-
         {/* SAĞ GRID */}
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {items.map((p) => (
@@ -66,7 +66,6 @@ export default function HomeDeals() {
               key={p.title}
               className="group flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
             >
-              {/* Ürün kısmı (görsel+başlık) tıklanabilir */}
               <Link href={p.href} className="block">
                 <div className="relative aspect-[16/10] bg-slate-100">
                   <Image
@@ -93,7 +92,6 @@ export default function HomeDeals() {
                 </div>
               </Link>
 
-              {/* Buton en altta hizalı (Link içinde Link yok) */}
               <div className="mt-auto px-4 pb-4">
                 <Link
                   href="/iletisim"
@@ -106,6 +104,8 @@ export default function HomeDeals() {
           ))}
         </div>
       </div>
-    </section>
-  );
+    </div>
+  </section>
+);
+
 }

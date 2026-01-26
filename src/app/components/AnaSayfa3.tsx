@@ -68,7 +68,8 @@ export default function FeaturedProducts() {
   ];
 
   return (
-    <section className="mx-auto w-full max-w-[1400px] px-3 sm:px-6 pb-14">
+    <section className="w-full pb-14">
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div className="mb-5 flex items-end justify-between gap-3">
         <div>
           <h2 className="text-xl font-extrabold text-slate-900 sm:text-2xl">
@@ -136,6 +137,7 @@ export default function FeaturedProducts() {
         >
           Tüm Ürünler →
         </Link>
+      </div>
       </div>
     </section>
   );
