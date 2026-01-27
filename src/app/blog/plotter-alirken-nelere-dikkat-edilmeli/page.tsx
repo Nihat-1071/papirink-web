@@ -132,7 +132,7 @@ export default function BlogPostPlotterGuide() {
 
       <main className="min-h-screen bg-gradient-to-b from-neutral-50 to-white text-neutral-900">
         <div className="mx-auto w-full max-w-6xl px-4 py-6 sm:px-6 lg:px-8">
-          <<BreadcrumbAuto className="mx-auto w-full max-w-6xl px-4 pt-6" />
+          <BreadcrumbAuto className="mx-auto w-full max-w-6xl px-4 pt-6" />
 
           {/* HERO */}
           <section className="mt-5 overflow-hidden rounded-3xl border border-neutral-200 bg-white shadow-sm">
