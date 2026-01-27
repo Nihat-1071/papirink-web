@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-import Breadcrumb from "../../components/Breadcrumb";
+import BreadcrumbAuto from "../../components/BreadcrumbAuto";
 import ScrollToTopProgress from "../../components/ScrollToTopProgress";
 import CategoryImagePair from "../../components/CategoryImagePair";
 import { CONTACT } from "../../lib/contact";
@@ -56,16 +56,16 @@ const CATS = [
     pills: ["Canon", "Epson", "Tanklı", "A3", "Foto"],
     images: [
       {
-        src: "/images/urunler/makinalar/masaustu-yazici/canon-pixma-g3400-ink-fotograf-tarayici-wifi-tankli.jpg",
-        alt: "Canon Pixma G3400 WiFi tanklı masaüstü yazıcı",
+        src: "/images/urunler/makinalar/fotokopi-makinasi/canon-c3326i-fotokopi-makinasi.webp",
+        alt: "Canon C3326i renkli fotokopi makinası",
       },
       {
-        src: "/images/urunler/makinalar/masaustu-yazici/epson-l1300-a3-murekkep-tankli-yazici-4-renk.jpg",
-        alt: "Epson L1300 A3 mürekkep tanklı masaüstü yazıcı",
+        src: "/images/urunler/makinalar/fotokopi-makinasi/canon-c3326i-fotokopi-makinasi-ozellikleri.webp",
+        alt: "Canon C3326i fotokopi makinası teknik özellikleri",
       },
       {
-        src: "/images/urunler/makinalar/masaustu-yazici/epson-l805-foto-tankli-yazici-6-renk.jpg",
-        alt: "Epson L805 6 renk foto tanklı masaüstü yazıcı",
+        src: "/images/urunler/makinalar/fotokopi-makinasi/canon-c3926i-fotokopi-makinasi.webp",
+        alt: "Canon C3926i renkli fotokopi makinası",
       },
     ],
   },
@@ -151,19 +151,10 @@ export default function MakinalarPage() {
   return (
     <>
       <Header />
+      <BreadcrumbAuto className="mx-auto w-full max-w-6xl px-4 pt-6" />
 
       <main className="bg-slate-50 text-slate-900 scroll-smooth">
         <section className="mx-auto max-w-7xl px-4 pt-4 pb-14 sm:px-6 lg:px-8">
-          {/* Breadcrumb */}
-          <Breadcrumb
-            items={[
-              { label: "Ana Sayfa", href: "/" },
-              { label: "Ürünler", href: "/urunler" },
-              { label: "Makinalar" },
-            ]}
-          />
-
-          {/* Hero */}
           <div
             id="top"
             className="mt-3 rounded-xl border border-slate-200 bg-white px-6 py-6 sm:px-8"
@@ -178,35 +169,6 @@ export default function MakinalarPage() {
               kategori seçerek sayfa içinde ilgili bölüme hızlıca
               gidebilirsiniz.
             </p>
-
-          {/* Quick actions */}
-          <div className="mt-5 flex flex-wrap gap-3">
-            {/* Hemen Ara */}
-            <a
-              href={CONTACT.tel}
-              className="inline-flex items-center justify-center rounded-md bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
-            >
-              Hemen Ara
-            </a>
-
-            {/* WhatsApp */}
-            <a
-              href={CONTACT.whatsapp}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-md bg-green-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-green-700"
-            >
-              WhatsApp
-            </a>
-
-            {/* İletişim */}
-            <Link
-              href="/iletisim"
-              className="inline-flex items-center justify-center rounded-md border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-50"
-            >
-              İletişim
-            </Link>
-          </div>
 
           </div>
 

@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import Breadcrumb from "../components/Breadcrumb";
+import BreadcrumbAuto from "../components/BreadcrumbAuto";
 
 export const dynamic = "error";
 
@@ -78,7 +78,7 @@ export default function IletisimPage() {
       <main className="bg-[#f5f7fb] text-slate-900">
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-12">
           {/* Breadcrumb */}
-          <Breadcrumb items={[{ label: "Ana Sayfa", href: "/" }, { label: "İletişim" }]} />
+          <BreadcrumbAuto className="mx-auto w-full max-w-6xl px-4 pt-6" />
 
           {/* Hero */}
           <div className="mt-6 grid gap-6 lg:grid-cols-2">

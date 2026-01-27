@@ -3,7 +3,7 @@
 import type { Metadata } from "next";
 import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
-import Breadcrumb from "../../../components/Breadcrumb";
+import BreadcrumbAuto from "@/app/components/BreadcrumbAuto";
 import ScrollToTopProgress from "../../../components/ScrollToTopProgress";
 import { CONTACT } from "../../../lib/contact";
 import CanonUyumluMurekkepClient from "./CanonUyumluMurekkepClient";
@@ -49,20 +49,12 @@ export default function Page() {
   return (
     <>
       <Header />
+      <BreadcrumbAuto className="mx-auto w-full max-w-6xl px-4 pt-6" />
 
       <main className="min-h-screen bg-white">
         <ScrollToTopProgress />
 
         <div className="mx-auto w-full max-w-6xl px-4 py-6">
-          <Breadcrumb
-            items={[
-              { label: "Ana Sayfa", href: "/" },
-              { label: "Ürünler", href: "/urunler" },
-              { label: "Mürekkep", href: "/urunler/murekkep" },
-              { label: "Canon Uyumlu Mürekkep", href: pagePath },
-            ]}
-          />
-
           <div className="mt-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
             <h1 className="text-2xl font-bold tracking-tight text-slate-900">
               Canon Uyumlu Mürekkep

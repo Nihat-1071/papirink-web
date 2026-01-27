@@ -3,7 +3,7 @@
 import type { Metadata } from "next";
 import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
-import Breadcrumb from "../../../components/Breadcrumb";
+import BreadcrumbAuto from "@/app/components/BreadcrumbAuto";
 import ScrollToTopProgress from "../../../components/ScrollToTopProgress";
 import { CONTACT } from "../../../lib/contact";
 import MatCoatedKagitlariClient from "./MatCoatedKagitlariClient";
@@ -33,11 +33,7 @@ export default function Page() {
     <>
       <Header />
       <ScrollToTopProgress />
-
-      {/* Breadcrumb AUTO (sonra component'i tam auto yapacağız) */}
-      <section className="mx-auto max-w-6xl px-4 pt-6">
-        <Breadcrumb items={[]} />
-      </section>
+      <BreadcrumbAuto className="mx-auto w-full max-w-6xl px-4 pt-6" />
 
       <MatCoatedKagitlariClient contactHref="/iletisim" contact={CONTACT} />
 

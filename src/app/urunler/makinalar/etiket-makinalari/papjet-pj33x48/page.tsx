@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import Header from "../../../../components/Header";
 import Footer from "../../../../components/Footer";
-import Breadcrumb from "../../../../components/Breadcrumb";
-import BreadcrumbAuto from "../../../../components/BreadcrumbAuto";
+import BreadcrumbAuto from "@/app/components/BreadcrumbAuto";
 import ProductHeroClient from "./ProductHeroClient";
 
 export const dynamic = "error";
@@ -55,7 +54,7 @@ export default function Page() {
 
       <main className="min-h-screen bg-[#f5f7fb]">
         <section className="mx-auto max-w-7xl px-4 pt-6 sm:px-6 lg:px-8">
-          <Breadcrumb items={breadcrumbItems} />
+          <BreadcrumbAuto className="mx-auto w-full max-w-6xl px-4 pt-6" />
         </section>
 
         <section className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">

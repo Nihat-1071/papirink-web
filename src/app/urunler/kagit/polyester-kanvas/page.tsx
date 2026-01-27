@@ -3,7 +3,7 @@
 import type { Metadata } from "next";
 import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
-import Breadcrumb from "../../../components/Breadcrumb";
+import BreadcrumbAuto from "../../../components/BreadcrumbAuto";
 import ScrollToTopProgress from "../../../components/ScrollToTopProgress";
 import { CONTACT } from "../../../lib/contact";
 import PolyesterKanvasClient from "./PolyesterKanvasClient";
@@ -33,6 +33,7 @@ export default function Page() {
     <>
       <Header />
       <ScrollToTopProgress />
+      <BreadcrumbAuto className="mx-auto w-full max-w-6xl px-4 pt-6" />
       <PolyesterKanvasClient contactHref="/iletisim" contact={CONTACT} />
 
       <Footer />

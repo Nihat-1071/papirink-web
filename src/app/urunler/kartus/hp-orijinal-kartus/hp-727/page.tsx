@@ -3,8 +3,7 @@
 import type { Metadata } from "next";
 import Header from "../../../../components/Header";
 import Footer from "../../../../components/Footer";
-import BreadcrumbAuto from "../../../../components/BreadcrumbAuto";
-import Breadcrumb from "../../../../components/Breadcrumb";
+import BreadcrumbAuto from "@/app/components/BreadcrumbAuto";
 import Hp727Client from "../hp-727/Hp727Client";
 
 export const dynamic = "error";
@@ -34,16 +33,6 @@ export default function Hp727Page() {
 
       <main className="bg-slate-50 text-slate-900">
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-14">
-          <Breadcrumb
-            items={[
-              { label: "Ana Sayfa", href: "/" },
-              { label: "Ürünler", href: "/urunler" },
-              { label: "Kartuş", href: "/urunler/kartus" },
-              { label: "HP Orijinal Kartuş", href: "/urunler/kartus/hp-orijinal-kartus" },
-              { label: "HP 727" },
-            ]}
-          />
-
           <Hp727Client />
         </section>
       </main>

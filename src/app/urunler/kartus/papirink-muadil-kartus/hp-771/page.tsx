@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import Header from "../../../../components/Header";
 import Footer from "../../../../components/Footer";
-import BreadcrumbAuto from "../../../../components/BreadcrumbAuto";
-import Breadcrumb from "../../../../components/Breadcrumb";
+import BreadcrumbAuto from "@/app/components/BreadcrumbAuto";
 import Hp771Client from "./Hp771Client";
 
 export const dynamic = "error";
@@ -32,19 +31,6 @@ export default function Hp771Page() {
 
       <main className="bg-slate-50 text-slate-900">
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-14">
-          <Breadcrumb
-            items={[
-              { label: "Ana Sayfa", href: "/" },
-              { label: "Ürünler", href: "/urunler" },
-              { label: "Kartuş", href: "/urunler/kartus" },
-              {
-                label: "Papirink Muadil Kartuş",
-                href: "/urunler/kartus/papirink-muadil-kartus",
-              },
-              { label: "HP 771" },
-            ]}
-          />
-
           <Hp771Client />
         </section>
       </main>

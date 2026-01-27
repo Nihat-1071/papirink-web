@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
+import BreadcrumbAuto from "@/app/components/BreadcrumbAuto";
 import ScrollToTopProgress from "../../../components/ScrollToTopProgress";
 import { CONTACT } from "../../../lib/contact";
 import AydingerClient from "./AydingerClient";
@@ -29,6 +30,7 @@ export default function Page() {
   return (
     <>
       <Header />
+      <BreadcrumbAuto className="mx-auto w-full max-w-6xl px-4 pt-6" />
       <ScrollToTopProgress />
 
 

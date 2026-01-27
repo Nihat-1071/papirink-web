@@ -1,4 +1,4 @@
-import Breadcrumb from "./components/Breadcrumb"
+
 
 1- // src/app/urunler/bitmeyen-kartus/page.tsx 
 bu sayfada bitmeyen kartuşta CANON imageslei yanlışlık var onu güncelle

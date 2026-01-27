@@ -3,7 +3,7 @@
 import type { Metadata } from "next";
 import Header from "../../../../components/Header";
 import Footer from "../../../../components/Footer";
-import Breadcrumb from "../../../../components/Breadcrumb";
+import BreadcrumbAuto from "../../../../components/BreadcrumbAuto";
 import ScrollToTopProgress from "../../../../components/ScrollToTopProgress";
 import Canon703Client from "./Canon703Client";
 
@@ -31,18 +31,8 @@ export default function Page() {
     <>
       <Header />
       <ScrollToTopProgress />
-
-      <main className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
-        <Breadcrumb
-          items={[
-            { label: "Ana Sayfa", href: "/" },
-            { label: "Ürünler", href: "/urunler" },
-            { label: "Kartuş", href: "/urunler/kartus" },
-            { label: "Canon Orijinal Kartuş", href: "/urunler/kartus/canon-orjinal-kartus" },
-            { label: "Canon PFI-703", href: pagePath },
-          ]}
-        />
-
+      <BreadcrumbAuto className="mx-auto w-full max-w-6xl px-4 pt-6" />
+      <main>
         <h1 className="mt-6 text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900">
           Canon PFI-703 Orijinal Plotter Kartuş
         </h1>

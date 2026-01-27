@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "../../../../components/Header";
 import Footer from "../../../../components/Footer";
-import Breadcrumb from "../../../../components/Breadcrumb";
+import BreadcrumbAuto from "../../../../components/BreadcrumbAuto";
 import ScrollToTopProgress from "../../../../components/ScrollToTopProgress";
 import Hp728Client from "./Hp728Client";
 
@@ -41,7 +41,7 @@ export default function Page() {
       <ScrollToTopProgress />
 
       <main className="mx-auto w-full max-w-6xl px-4 pb-16 pt-6">
-        <Breadcrumb items={breadcrumbItems} />
+        <BreadcrumbAuto className="mx-auto w-full max-w-6xl px-4 pt-6" />
 
         <div className="mt-4 flex items-end justify-between gap-3 flex-wrap">
           <div>

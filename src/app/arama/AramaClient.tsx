@@ -6,7 +6,7 @@ import { useSearchParams } from "next/navigation";
 import Fuse from "fuse.js";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import Breadcrumb from "../components/Breadcrumb";
+import BreadcrumbAuto from "../components/BreadcrumbAuto";
 import { SEARCH_INDEX } from "../lib/searchIndex";
 
 export default function AramaClient() {
@@ -35,7 +35,7 @@ export default function AramaClient() {
 
       <main className="bg-[#0b1220] text-white">
         <section className="mx-auto max-w-6xl px-4 py-12">
-          <Breadcrumb items={[{ label: "Ana Sayfa", href: "/" }, { label: "Arama" }]} />
+          <BreadcrumbAuto className="mx-auto w-full max-w-6xl px-4 pt-6" />
 
           <h1 className="mt-4 text-3xl font-extrabold">Arama</h1>
           <p className="mt-2 text-white/70">

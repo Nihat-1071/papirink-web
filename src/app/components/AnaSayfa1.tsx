@@ -110,7 +110,7 @@ export default function HomeShowcase() {
             priority
             quality={100}
             unoptimized
-            className="object-cover"
+            className="object-containr"
           />
 
 
@@ -158,14 +158,14 @@ export default function HomeShowcase() {
                     activeThumb ? "border-slate-900" : "border-slate-200",
                   ].join(" ")}
                 >
-                  <div className="relative aspect-[16/10] overflow-hidden rounded-xl">
+                  <div className="relative aspect-[1920/700] overflow-hidden rounded-xl">
                   <Image
                     src={t.imageSrc}
                     alt={t.imageAlt}
                     fill
                     quality={95}
                     unoptimized
-                    className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                    className="object-contain transition-transform duration-300 group-hover:scale-[1.02]"
 />
                   </div>
                   <div className="mt-2 text-center text-xs font-extrabold text-slate-800">

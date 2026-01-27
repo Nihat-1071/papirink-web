@@ -503,31 +503,6 @@ export default function CanonOrijinalKartusClient() {
 
           <div className="mt-6 h-px w-full bg-slate-100" />
 
-          {/* Quick actions */}
-          <div className="mt-5 flex flex-wrap gap-3">
-            <a
-              href={CONTACT.tel}
-              className="rounded-md bg-slate-900 px-6 py-3 text-sm font-semibold text-white hover:bg-slate-800 transition"
-            >
-              Hızlı Destek / Teklif Al
-            </a>
-
-            <a
-              href={CONTACT.whatsapp}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-md bg-green-600 px-6 py-3 text-sm font-semibold text-white hover:bg-green-700 transition"
-            >
-              WhatsApp
-            </a>
-
-            <Link
-              href="/iletisim"
-              className="rounded-md border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-900 hover:bg-slate-50 transition"
-            >
-              İletişim kanallarımız
-            </Link>
-          </div>
 
           {/* Filters */}
           <div className="mt-6">

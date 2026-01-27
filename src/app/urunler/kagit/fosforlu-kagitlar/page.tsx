@@ -3,7 +3,7 @@
 import type { Metadata } from "next";
 import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
-import Breadcrumb from "../../../components/Breadcrumb";
+import BreadcrumbAuto from "@/app/components/BreadcrumbAuto";
 import ScrollToTopProgress from "../../../components/ScrollToTopProgress";
 import FosforluKagitlarClient from "./FosforluKagitlarClient";
 
@@ -39,11 +39,7 @@ export default function Page() {
     <>
       <Header />
       <ScrollToTopProgress />
-
-      <div className="mx-auto max-w-6xl px-4 pt-6">
-        <Breadcrumb items={breadcrumbItems} />
-      </div>
-
+      <BreadcrumbAuto className="mx-auto w-full max-w-6xl px-4 pt-6" />
       <FosforluKagitlarClient contactHref="/iletisim" />
 
       <Footer />

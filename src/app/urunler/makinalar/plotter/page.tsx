@@ -3,7 +3,6 @@
 import type { Metadata } from "next";
 import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
-import Breadcrumb from "../../../components/Breadcrumb";
 import PlotterClient from "./PlotterClient";
 import BreadcrumbAuto from "../../../components/BreadcrumbAuto";
 
@@ -32,14 +31,6 @@ export default function PlotterPage() {
       <BreadcrumbAuto className="mx-auto w-full max-w-6xl px-4 pt-4" />
       <main className="bg-slate-50 text-slate-900">
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-14">
-          <Breadcrumb
-            items={[
-              { label: "Ana Sayfa", href: "/" },
-              { label: "Ürünler", href: "/urunler" },
-              { label: "Makinalar", href: "/urunler/makinalar" },
-              { label: "Plotter" },
-            ]}
-          />
 
           {/* Client kısmı */}
           <PlotterClient />

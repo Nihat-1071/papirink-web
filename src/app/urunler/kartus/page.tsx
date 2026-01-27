@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-import Breadcrumb from "../../components/Breadcrumb";
+import BreadcrumbAuto from "../../components/BreadcrumbAuto";
 import ScrollToTopProgress from "../../components/ScrollToTopProgress";
 import CategoryImagePair from "../../components/CategoryImagePair";
 import { CONTACT } from "../../lib/contact";
@@ -36,15 +36,15 @@ const CATS = [
     pills: ["HP 70", "HP 711", "HP 727", "DesignJet", "300 ml"],
     images: [
       {
-        src: "/images/urunler/kartus/hp-orijinal-kartus/hp-70-c9448a-mat-siyah-orjinal-kartus.jpg",
+        src: "/images/urunler/kartus/hp-orjinal-kartus/hp-70-c9448a-mat-siyah-orjinal-kartus.jpg",
         alt: "HP 70 C9448A mat siyah orijinal kartuş",
       },
       {
-        src: "/images/urunler/kartus/hp-orijinal-kartus/hp-711-cz133a-siyah-orjinal-kartus-80-ml-designjet-t120-t520.jpg",
+        src: "/images/urunler/kartus/hp-orjinal-kartus/hp-711-cz133a-siyah-orjinal-kartus-80-ml-designjet-t120-t520.jpg",
         alt: "HP 711 CZ133A siyah orijinal kartuş 80 ml (DesignJet T120 / T520)",
       },
       {
-        src: "/images/urunler/kartus/hp-orijinal-kartus/hp-727-c1q12a-mat-siyah-kartus-300-ml-t920-t1500-t2500.jpg",
+        src: "/images/urunler/kartus/hp-orjinal-kartus/hp-727-c1q12a-mat-siyah-kartus-300-ml-t920-t1500-t2500.jpg",
         alt: "HP 727 C1Q12A mat siyah orijinal kartuş 300 ml (T920 / T1500 / T2500)",
       },
     ],
@@ -121,14 +121,7 @@ export default function KartusPage() {
 
       <main className="bg-slate-50 text-slate-900 scroll-smooth">
         <section className="mx-auto max-w-7xl px-4 pt-4 pb-14 sm:px-6 lg:px-8">
-          {/* Breadcrumb */}
-          <Breadcrumb
-            items={[
-              { label: "Ana Sayfa", href: "/" },
-              { label: "Ürünler", href: "/urunler" },
-              { label: "Kartuş" },
-            ]}
-          />
+<BreadcrumbAuto className="mx-auto w-full max-w-6xl px-4 pt-6" />
 
           {/* Hero */}
           <div
@@ -146,34 +139,6 @@ export default function KartusPage() {
               gidebilirsiniz.
             </p>
 
-            {/* Quick actions */}
-            <div className="mt-5 flex flex-wrap gap-3">
-              {/* Teklif Al / Hemen Ara */}
-              <a
-                href={CONTACT.tel}
-                className="inline-flex items-center justify-center rounded-md bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
-              >
-                Teklif Al / Hemen Ara
-              </a>
-
-              {/* WhatsApp */}
-              <a
-                href={CONTACT.whatsapp}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-md bg-green-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-green-700"
-              >
-                WhatsApp
-              </a>
-
-              {/* İletişim */}
-              <Link
-                href="/iletisim"
-                className="inline-flex items-center justify-center rounded-md border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-50"
-              >
-                İletişim
-              </Link>
-            </div>
           </div>
 
           {/* 🔒 Sticky Alt Kategoriler Bar */}

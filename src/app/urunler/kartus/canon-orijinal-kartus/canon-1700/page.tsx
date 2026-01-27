@@ -3,7 +3,8 @@
 import type { Metadata } from "next";
 import Header from "../../../../components/Header";
 import Footer from "../../../../components/Footer";
-import Breadcrumb from "../../../../components/Breadcrumb";
+import BreadcrumbAuto from "../../../../components/BreadcrumbAuto";
+
 import ScrollToTopProgress from "../../../../components/ScrollToTopProgress";
 import Canon1700Client from "./Canon1700Client";
 
@@ -31,21 +32,8 @@ export default function Page() {
     <>
       <Header />
       <ScrollToTopProgress />
-
-      <main className="mx-auto w-full max-w-6xl px-4 pb-16">
-        <Breadcrumb
-          items={[
-            { label: "Anasayfa", href: "/" },
-            { label: "Ürünler", href: "/urunler" },
-            { label: "Kartuş", href: "/urunler/kartus" },
-            {
-              label: "Canon Orijinal Kartuş",
-              href: "/urunler/kartus/canon-orijinal-kartus",
-            },
-            { label: "Canon PFI-1700", href: pagePath },
-          ]}
-        />
-
+      <BreadcrumbAuto className="mx-auto w-full max-w-6xl px-4 pt-6" />
+      <main>
         <div className="mt-6 rounded-xl border border-slate-200 bg-white p-6">
           <h1 className="text-3xl font-bold text-slate-900">
             Canon PFI-1700 Orijinal Kartuş

@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import Header from "../../../../components/Header";
 import Footer from "../../../../components/Footer";
-import Breadcrumb from "../../../../components/Breadcrumb";
-import ProductHeroClient from "./ProductHeroClient";
 import BreadcrumbAuto from "../../../../components/BreadcrumbAuto";
+import ProductHeroClient from "./ProductHeroClient";
 
 export const dynamic = "error";
 
@@ -53,7 +52,7 @@ export default function Page() {
       <main className="min-h-screen bg-[#f5f7fb]">
         {/* Breadcrumb */}
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
-          <Breadcrumb items={breadcrumbItems} />
+          <BreadcrumbAuto className="mx-auto w-full max-w-6xl px-4 pt-6" />
         </section>
 
         {/* Ürün üst alan (kurumsal hero) */}

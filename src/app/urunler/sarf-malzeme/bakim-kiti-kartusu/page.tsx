@@ -3,7 +3,6 @@
 import type { Metadata } from "next";
 import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
-import Breadcrumb from "../../../components/Breadcrumb";
 import BreadcrumbAuto from "../../../components/BreadcrumbAuto";
 import BakimKitiKartusuClient from "./BakimKitiKartusuClient";
 
@@ -33,15 +32,6 @@ export default function BakimKitiKartusuPage() {
 
       <main className="bg-slate-50 text-slate-900">
         <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-8 pb-14">
-          <Breadcrumb
-            items={[
-              { label: "Ana Sayfa", href: "/" },
-              { label: "Ürünler", href: "/urunler" },
-              { label: "Sarf Malzemeleri", href: "/urunler/sarf-malzemeleri" },
-              { label: "Bakım Kiti / Kartuşu" },
-            ]}
-          />
-
           <BakimKitiKartusuClient />
         </section>
       </main>

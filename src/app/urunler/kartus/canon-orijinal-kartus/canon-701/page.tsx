@@ -2,7 +2,7 @@
 import type { Metadata } from "next";
 import Header from "../../../../components/Header";
 import Footer from "../../../../components/Footer";
-import Breadcrumb from "../../../../components/Breadcrumb";
+import BreadcrumbAuto from "../../../../components/BreadcrumbAuto";
 import ScrollToTopProgress from "../../../../components/ScrollToTopProgress";
 import Canon701Client from "./Canon701Client";
 
@@ -42,23 +42,9 @@ export default function Page() {
   return (
     <>
       <Header />
+      <BreadcrumbAuto className="mx-auto w-full max-w-6xl px-4 pt-6" />
       <main className="min-h-screen bg-white">
         <ScrollToTopProgress />
-
-        <div className="mx-auto w-full max-w-6xl px-4 pt-6">
-          <Breadcrumb
-            items={[
-              { label: "Ana Sayfa", href: "/" },
-              { label: "Ürünler", href: "/urunler" },
-              { label: "Kartuş", href: "/urunler/kartus" },
-              {
-                label: "Canon Orjinal Kartuş",
-                href: "/urunler/kartus/canon-orjinal-kartus",
-              },
-              { label: "Canon 701", href: pagePath },
-            ]}
-          />
-        </div>
 
         <section className="mx-auto w-full max-w-6xl px-4 pb-10 pt-4">
           <h1 className="text-2xl font-semibold tracking-tight sm:text-3xl">

@@ -4,7 +4,6 @@ import type { Metadata } from "next";
 import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
 import BreadcrumbAuto from "../../../components/BreadcrumbAuto";
-import Breadcrumb from "../../../components/Breadcrumb";
 import PamukluKanvasCottonClient from "./PamukluKanvasCottonClient";
 
 export const dynamic = "error";
@@ -34,14 +33,6 @@ export default function PamukluKanvasCottonPage() {
 
       <main className="bg-slate-50 text-slate-900">
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-14">
-          <Breadcrumb
-            items={[
-              { label: "Ana Sayfa", href: "/" },
-              { label: "Ürünler", href: "/urunler" },
-              { label: "Kağıt", href: "/urunler/kagit" },
-              { label: "Pamuklu Kanvas (Cotton)" },
-            ]}
-          />
 
           <PamukluKanvasCottonClient />
         </section>

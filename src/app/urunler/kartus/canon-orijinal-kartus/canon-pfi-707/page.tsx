@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Header from "../../../../components/Header";
 import Footer from "../../../../components/Footer";
-import Breadcrumb from "../../../../components/Breadcrumb";
+import BreadcrumbAuto from "../../../../components/BreadcrumbAuto";
 import ScrollToTopProgress from "../../../../components/ScrollToTopProgress";
 import CanonPfi707Client from "./Canon707Client";
 
@@ -36,10 +36,9 @@ export default function Page() {
     <>
       <Header />
       <ScrollToTopProgress />
+      <BreadcrumbAuto className="mx-auto w-full max-w-6xl px-4 pt-6" />
 
       <main className="mx-auto w-full max-w-7xl px-4 py-10">
-        <Breadcrumb items={items} />
-
         <h1 className="mt-4 text-3xl font-bold tracking-tight text-slate-900">
           Canon PFI-707MBK Orijinal Kartuş
         </h1>

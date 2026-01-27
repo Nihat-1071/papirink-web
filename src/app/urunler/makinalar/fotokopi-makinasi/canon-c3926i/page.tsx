@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import Header from "../../../../components/Header";
 import Footer from "../../../../components/Footer";
-import Breadcrumb from "../../../../components/Breadcrumb";
-import BreadcrumbAuto from "../../../../components/BreadcrumbAuto";
+import BreadcrumbAuto from "@/app/components/BreadcrumbAuto";
 import CanonC3926iClient from "./CanonC3926iClient";
 
 export const dynamic = "error";
@@ -39,19 +38,6 @@ export default function CanonC3926iPage() {
 
       <main className="bg-slate-50 text-slate-900">
         <section className="mx-auto max-w-7xl px-4 pt-8 pb-14 sm:px-6 lg:px-8">
-          <Breadcrumb
-            items={[
-              { label: "Ana Sayfa", href: "/" },
-              { label: "Ürünler", href: "/urunler" },
-              { label: "Makinalar", href: "/urunler/makinalar" },
-              {
-                label: "Fotokopi Makineleri",
-                href: "/urunler/makinalar/fotokopi-makinasi",
-              },
-              { label: "Canon c3926i" },
-            ]}
-          />
-
           <CanonC3926iClient />
         </section>
       </main>

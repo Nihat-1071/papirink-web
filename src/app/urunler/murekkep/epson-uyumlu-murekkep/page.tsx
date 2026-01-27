@@ -3,7 +3,7 @@
 import type { Metadata } from "next";
 import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
-import Breadcrumb from "../../../components/Breadcrumb";
+import BreadcrumbAuto from "../../../components/BreadcrumbAuto";
 import ScrollToTopProgress from "../../../components/ScrollToTopProgress";
 import { CONTACT } from "../../../lib/contact";
 import EpsonUyumluMurekkepClient from "./EpsonUyumluMurekkepClient";
@@ -38,19 +38,13 @@ export default function Page() {
   return (
     <>
       <Header />
+      
 
       <main className="min-h-screen bg-white">
         <ScrollToTopProgress />
 
         <div className="mx-auto w-full max-w-6xl px-4 pt-6">
-          <Breadcrumb
-            items={[
-              { label: "Ana Sayfa", href: "/" },
-              { label: "Ürünler", href: "/urunler" },
-              { label: "Mürekkep", href: "/urunler/murekkep" },
-              { label: "Epson Uyumlu Mürekkep", href: pagePath },
-            ]}
-          />
+        <BreadcrumbAuto className="mx-auto w-full max-w-6xl px-4 pt-6" />
 
           <div className="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-6">
             <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900">

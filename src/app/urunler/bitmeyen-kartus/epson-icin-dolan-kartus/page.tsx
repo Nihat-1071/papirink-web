@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
-import Breadcrumb from "../../../components/Breadcrumb";
+import BreadcrumbAuto from "@/app/components/BreadcrumbAuto";
 import ScrollToTopProgress from "../../../components/ScrollToTopProgress";
 import { CONTACT } from "../../../lib/contact";
 
@@ -160,17 +160,7 @@ export default function Page() {
       <Header />
       <ScrollToTopProgress />
 
-      {/* Breadcrumb (hero ile aynı max-w hizasında) */}
-      <section className="mx-auto w-full max-w-6xl px-4 pt-6">
-        <Breadcrumb
-          items={[
-            { label: "Ana Sayfa", href: "/" },
-            { label: "Ürünler", href: "/urunler" },
-            { label: "Bitmeyen Kartuş", href: "/urunler/bitmeyen-kartus" },
-            { label: "Epson İçin Dolan Kartuş", href: pagePath },
-          ]}
-        />
-      </section>
+<BreadcrumbAuto className="mx-auto w-full max-w-6xl px-4 pt-6" />
 
       {/* HERO */}
       <section className="mx-auto w-full max-w-6xl px-4 pb-6 pt-4">

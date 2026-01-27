@@ -223,7 +223,7 @@ export default function Header() {
                   width={520}
                   height={160}
                   priority
-                  className={`w-auto drop-shadow-[0_10px_18px_rgba(0,0,0,0.55)] transition-all duration-300
+                  className={`w-auto transition-all duration-300
                     ${(forceCompact || scrolled) ? "h-[52px] sm:h-[64px]" : "h-[76px] sm:h-[104px]"}
                   `}
                 />

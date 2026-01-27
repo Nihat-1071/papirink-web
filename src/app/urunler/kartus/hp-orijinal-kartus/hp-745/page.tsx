@@ -3,7 +3,7 @@
 import type { Metadata } from "next";
 import Header from "../../../../components/Header";
 import Footer from "../../../../components/Footer";
-import Breadcrumb from "../../../../components/Breadcrumb";
+import BreadcrumbAuto from "../../../../components/BreadcrumbAuto";
 import ScrollToTopProgress from "../../../../components/ScrollToTopProgress";
 import Hp745Client from "../hp-745/Hp745Client";
 
@@ -32,17 +32,8 @@ export default function Page() {
     <>
       <Header />
       <ScrollToTopProgress />
-
-      <main className="mx-auto w-full max-w-6xl px-4 pb-16 pt-6">
-        <Breadcrumb
-          items={[
-            { label: "Ana Sayfa", href: "/" },
-            { label: "Ürünler", href: "/urunler" },
-            { label: "Kartuş", href: "/urunler/kartus" },
-            { label: "HP Orijinal Kartuş", href: "/urunler/kartus/hp-orjinal-kartus" },
-            { label: "HP 745", href: pagePath },
-          ]}
-        />
+      <main>
+<BreadcrumbAuto className="mx-auto w-full max-w-6xl px-4 pt-6" />
 
         <h1 className="mt-4 text-2xl font-extrabold tracking-tight text-slate-900">
           HP 745 Orijinal Kartuş (300 ml)

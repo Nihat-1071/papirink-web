@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import Breadcrumb from "../components/Breadcrumb";
+
 import TopCategoryBar from "./TopCategoryBar";
 import SearchBox from "../components/SearchBox";
 
@@ -30,7 +30,7 @@ const GROUPS = [
   {
     title: "Makinalar",
     desc: "Plotter, tarayıcı ve katlama çözümleri.",
-    href: "/urunler/makinalar/plotter",
+    href: "/urunler/makinalar",
     iconKey: "printer",
     items: [
       { label: "Plotter", href: "/urunler/makinalar/plotter" },
@@ -44,7 +44,7 @@ const GROUPS = [
   {
     title: "Kartuş",
     desc: "Orijinal ve muadil kartuş seçenekleri.",
-    href: "/urunler/kartus/hp-orijinal-kartus",
+    href: "/urunler/kartus",
     iconKey: "droplets",
     items: [
       { label: "HP Orijinal Kartuş", href: "/urunler/kartus/hp-orijinal-kartus" },
@@ -56,7 +56,7 @@ const GROUPS = [
   {
     title: "Kağıt",
     desc: "Plotter kâğıtları, fotoğraf kâğıtları, kanvas ve özel yüzeyler.",
-    href: "/urunler/kagit/plotter-kagitlari",
+    href: "/urunler/kagit",
     iconKey: "filetext",
     items: [
       { label: "Plotter Kağıtları", href: "/urunler/kagit/plotter-kagitlari" },
@@ -65,7 +65,7 @@ const GROUPS = [
       { label: "Aydınger", href: "/urunler/kagit/aydinger" },
       { label: "Polyester", href: "/urunler/kagit/polyester" },
       { label: "Polyester Kanvas", href: "/urunler/kagit/polyester-kanvas" },
-      { label: "Pamuklu Kanvas (Cotton)", href: "/urunler/kagit/pamuklu-kanvas" },
+      { label: "Pamuklu Kanvas (Cotton)", href: "/urunler/kagit/pamuklu-kanvas-cotton" },
       { label: "Yapışkanlı Kağıtlar", href: "/urunler/kagit/yapiskanli-kagitlar" },
       { label: "Bayrak Bezi - Takvim Bezi", href: "/urunler/kagit/bayrak-bezi-takvim-bezi" },
       { label: "Fosforlu Kağıtlar", href: "/urunler/kagit/fosforlu-kagitlar" },
@@ -74,7 +74,7 @@ const GROUPS = [
   {
     title: "Bitmeyen Kartuş",
     desc: "Dolan kartuş sistemleri ve uyumlu seçenekler.",
-    href: "/urunler/bitmeyen-kartus/epson-icin-dolan-kartus",
+    href: "/urunler/bitmeyen-kartus",
     iconKey: "infinity",
     items: [
       { label: "Epson için Dolan Kartuş", href: "/urunler/bitmeyen-kartus/epson-icin-dolan-kartus" },
@@ -85,7 +85,7 @@ const GROUPS = [
   {
     title: "Mürekkep",
     desc: "HP, Canon, Epson uyumlu mürekkep çözümleri.",
-    href: "/urunler/murekkep/hp-uyumlu-murekkep",
+    href: "/urunler/murekkep",
     iconKey: "paintbucket",
     items: [
       { label: "HP Uyumlu Mürekkep", href: "/urunler/murekkep/hp-uyumlu-murekkep" },
@@ -96,7 +96,7 @@ const GROUPS = [
   {
     title: "Sarf Malzemesi",
     desc: "Baskı kafası, toner, çip ve bakım kitleri.",
-    href: "/urunler/sarf-malzeme/baski-kafasi",
+    href: "/urunler/sarf-malzeme",
     iconKey: "package",
     items: [
       { label: "Baskı Kafası", href: "/urunler/sarf-malzeme/baski-kafasi" },
@@ -115,8 +115,6 @@ export default function UrunlerPage() {
 
       <main className="bg-[#f5f7fb] text-slate-900">
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-12">
-          {/* Breadcrumb (hero ile aynı max-w hizası) */}
-          <Breadcrumb items={[{ label: "Ana Sayfa", href: "/" }, { label: "Ürünler" }]} />
 
           {/* Hero */}
           <div className="mt-6 flex flex-col gap-5">

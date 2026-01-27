@@ -3,7 +3,7 @@
 import type { Metadata } from "next";
 import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
-import Breadcrumb from "../../../components/Breadcrumb";
+import BreadcrumbAuto from "../../../components/BreadcrumbAuto";
 import ScrollToTopProgress from "../../../components/ScrollToTopProgress";
 import YapiskanliKagitlarClient from "./YapiskanliKagitlarClient";
 
@@ -31,19 +31,9 @@ export default function Page() {
     <>
       <Header />
       <ScrollToTopProgress />
+      <BreadcrumbAuto className="mx-auto w-full max-w-6xl px-4 pt-6" />
 
       <main className="bg-white">
-        <section className="mx-auto max-w-6xl px-4 pt-6">
-          <Breadcrumb
-            items={[
-              { label: "Ana Sayfa", href: "/" },
-              { label: "Ürünler", href: "/urunler" },
-              { label: "Kağıt", href: "/urunler/kagit" },
-              { label: "Yapışkanlı Kağıtlar", href: pagePath },
-            ]}
-          />
-        </section>
-
         <YapiskanliKagitlarClient contactHref="/iletisim" />
       </main>
 

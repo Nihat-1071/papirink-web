@@ -2,7 +2,7 @@
 import type { Metadata } from "next";
 import Header from "../../../../components/Header";
 import Footer from "../../../../components/Footer";
-import Breadcrumb from "../../../../components/Breadcrumb";
+import BreadcrumbAuto from "../../../../components/BreadcrumbAuto";
 import ScrollToTopProgress from "../../../../components/ScrollToTopProgress";
 import Hp831Client from "./Hp831Client";
 
@@ -41,7 +41,7 @@ export default function Page() {
       <ScrollToTopProgress />
 
       <main className="mx-auto w-full max-w-6xl px-4 pb-16 pt-8">
-        <Breadcrumb items={crumbs} />
+        <BreadcrumbAuto className="mx-auto w-full max-w-6xl px-4 pt-6" />
 
         {/* Hero */}
         <section className="mt-6">

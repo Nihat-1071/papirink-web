@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-import Breadcrumb from "../../components/Breadcrumb";
+import BreadcrumbAuto from "../../components/BreadcrumbAuto";
 import ScrollToTopProgress from "../../components/ScrollToTopProgress";
 import CategoryImagePair from "../../components/CategoryImagePair";
 import { CONTACT } from "../../lib/contact";
@@ -172,17 +172,10 @@ export default function KagitPage() {
   return (
     <>
       <Header />
+      <BreadcrumbAuto className="mx-auto w-full max-w-6xl px-4 pt-6" />
 
       <main className="bg-slate-50 text-slate-900 scroll-smooth">
         <section className="mx-auto max-w-7xl px-4 pt-4 pb-14 sm:px-6 lg:px-8">
-          <Breadcrumb
-            items={[
-              { label: "Ana Sayfa", href: "/" },
-              { label: "Ürünler", href: "/urunler" },
-              { label: "Kağıt" },
-            ]}
-          />
-
           <div className="mt-3 rounded-xl border border-slate-200 bg-white px-6 py-6 sm:px-8">
             <h1 className="text-3xl font-bold tracking-tight md:text-4xl">
               Kağıt
@@ -194,28 +187,6 @@ export default function KagitPage() {
               inceleyebilirsiniz.
             </p>
 
-            <div className="mt-5 flex flex-wrap gap-3">
-              <a
-                href={CONTACT.tel}
-                className="rounded-md bg-slate-900 px-6 py-3 text-sm font-semibold text-white hover:bg-slate-800"
-              >
-                Teklif Al / Hemen Ara
-              </a>
-              <a
-                href={CONTACT.whatsapp}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-md bg-green-600 px-6 py-3 text-sm font-semibold text-white hover:bg-green-700"
-              >
-                WhatsApp
-              </a>
-              <Link
-                href="/iletisim"
-                className="rounded-md border border-slate-300 bg-white px-6 py-3 text-sm font-semibold hover:bg-slate-50"
-              >
-                İletişim
-              </Link>
-            </div>
           </div>
 
           {/* Sticky bar */}
